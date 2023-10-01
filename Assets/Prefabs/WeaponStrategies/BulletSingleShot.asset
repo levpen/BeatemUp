@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70ce66ddc8a41b2ac19a1b12a11afe4, type: 3}
   m_Name: BulletSingleShot
   m_EditorClassIdentifier: 
-  damage: 10
-  fireRate: 0.5
-  projectileSpeed: 10
+  damage: 50
+  fireRate: 1
+  projectileSpeed: 100
   projectileLifetime: 4
   projectilePrefab: {fileID: 8921925493328435208, guid: 38762aa742edb6141bee56670a6a12f5, type: 3}

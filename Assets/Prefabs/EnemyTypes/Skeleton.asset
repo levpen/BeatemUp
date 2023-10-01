@@ -16,3 +16,4 @@ MonoBehaviour:
   weaponPrefab: {fileID: 8921925493328435208, guid: 38762aa742edb6141bee56670a6a12f5, type: 3}
   speed: 30
   distance: 50
+  health: 100
