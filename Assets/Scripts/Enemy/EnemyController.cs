@@ -5,7 +5,7 @@ namespace Beatemup.Enemy
 {
     public class EnemyController : MonoBehaviour
     {
-        static Transform target;
+        private static Transform target;
         private Rigidbody2D rb;
         public float moveSpeed;
         public float health;
