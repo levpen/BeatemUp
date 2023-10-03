@@ -20,7 +20,7 @@ namespace Beatemup.Beat
 
         void Awake()
         {
-            bpmInSeconds = 60f / bpm / (BEAT_COUNT / 4);
+            bpmInSeconds = 60f / bpm / (BEAT_COUNT / 4f);
             foreach (var beatMap in beatBatch)
             {
                 var comp = this.AddComponent<AudioSource>();

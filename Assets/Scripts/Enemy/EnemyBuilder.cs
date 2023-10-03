@@ -7,10 +7,11 @@ namespace Beatemup.Enemy
         private const float RadiusDelta = 1f;
 
         private GameObject enemyPrefab;
-        private GameObject weaponPrefab;
+        //private GameObject weaponPrefab;
         private float speed;
         private float distance;
         private float health;
+        private float damage;
         private Transform playerPosition;
 
         public EnemyBuilder SetBasePrefab(GameObject prefab)
@@ -19,11 +20,11 @@ namespace Beatemup.Enemy
             return this;
         }
 
-        public EnemyBuilder SetWeaponPrefab(GameObject weapon)
-        {
-            weaponPrefab = weapon;
-            return this;
-        }
+        // public EnemyBuilder SetWeaponPrefab(GameObject weapon)
+        // {
+        //     weaponPrefab = weapon;
+        //     return this;
+        // }
 
         public EnemyBuilder SetSpeed(float speed)
         {
@@ -39,6 +40,12 @@ namespace Beatemup.Enemy
         public EnemyBuilder SetHealth(float hp)
         {
             health = hp;
+            return this;
+        }
+        
+        public EnemyBuilder SetDamage(float dmg)
+        {
+            damage = dmg;
             return this;
         }
 
@@ -58,6 +65,7 @@ namespace Beatemup.Enemy
             var controller = instance.GetComponent<EnemyController>();
             controller.moveSpeed = speed;
             controller.health = health;
+            controller.damage = damage;
 
             return instance;
         }

@@ -9,10 +9,11 @@ namespace Beatemup.Enemy
         {
             EnemyBuilder builder = new EnemyBuilder()
                 .SetBasePrefab(enemyType.enemyPrefab)
-                .SetWeaponPrefab(enemyType.weaponPrefab)
+                //.SetWeaponPrefab(enemyType.weaponPrefab)
                 .SetSpeed(enemyType.speed)
                 .SetDistance(enemyType.distance)
                 .SetHealth(enemyType.health)
+                .SetDamage(enemyType.damage)
                 .SetPlayerPosition(playerPos);
             return builder.Build();
         }

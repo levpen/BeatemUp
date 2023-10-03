@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 4659698466660909706, guid: f302696ec55254346a969e8d3d5b50a6, type: 3}
-  weaponPrefab: {fileID: 8921925493328435208, guid: 38762aa742edb6141bee56670a6a12f5, type: 3}
-  speed: 30
+  speed: 5
   distance: 50
   health: 100
+  damage: 20

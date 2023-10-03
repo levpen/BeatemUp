@@ -5,29 +5,26 @@ namespace Beatemup.Enemy
 {
     public class EnemyController : MonoBehaviour
     {
-        private static Transform target;
-        private Rigidbody2D rb;
+        private static Transform player;
         public float moveSpeed;
         public float health;
+        public float damage;
 
         private void Awake()
         {
-            rb = GetComponent<Rigidbody2D>();
-            target = GameObject.FindWithTag("Player").transform;
+            player = GameObject.FindWithTag("Player").transform;
         }
 
         private void Update()
         {
-            var position = transform.position;
-            Vector2 direction = (target.position - position).normalized;
-            // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.MovePosition(position + (Vector3)direction * (Time.deltaTime * moveSpeed));
+            transform.position = Vector2.MoveTowards(transform.position, player.position, Time.deltaTime * moveSpeed);
         }
 
-        public void ReactToHit(float damage)
+
+        public void ReactToHit(float dmg)
         {
             //Debug.Log("Hit");
-            health -= damage;
+            health -= dmg;
             //Debug.Log(health);
             if (health <= 0)
             {
