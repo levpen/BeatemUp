@@ -207,6 +207,7 @@ MonoBehaviour:
   moveSpeed: 1
   health: 0
   damage: 0
+  xpPrefab: {fileID: 3261944051279564664, guid: db44af07ce8992e4999ffb5bd406ceca, type: 3}
 --- !u!1 &6024898873431899282
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,9 @@ namespace Beatemup.Enemy
         public float moveSpeed;
         public float health;
         public float damage;
-
+        
+        public GameObject xpPrefab;
+        
         private void Awake()
         {
             player = GameObject.FindWithTag("Player").transform;
@@ -34,6 +36,7 @@ namespace Beatemup.Enemy
 
         private void Die()
         {
+            Instantiate(xpPrefab, transform.position, transform.rotation);
             Destroy(this.GameObject());
         }
     }

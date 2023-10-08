@@ -17,6 +17,8 @@ namespace Beatemup.Beat
         public Transform firePoint;
         public Transform crossHair;
 
+        [SerializeField] private Animator playerAnimator;
+
 
         void Awake()
         {
@@ -31,7 +33,7 @@ namespace Beatemup.Beat
             //Hat, kick, snare
             batchArray = new[,]
             {
-                { 1, 1, 0 }, { 1, 0, 0 }, { 1, 0, 1 }, { 1, 0, 0 }, { 1, 1, 0 }, { 1, 0, 0 }, { 1, 0, 1 }, { 1, 1, 0 }
+                { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 1, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }
             };
             sources = GetComponents<AudioSource>();
         }
@@ -47,13 +49,26 @@ namespace Beatemup.Beat
             //Main music cycle
             while (true)
             {
+                bool fired = false;
                 for (int i = 0; i < sources.Length; ++i)
                 {
                     if (batchArray[curBeat, i] == 1)
                     {
+                        if (!fired)
+                        {
+                            fired = true;
+                            Debug.Log("triggered");
+                            playerAnimator.SetTrigger("shootAttack");
+                        }
+
                         sources[i].Play();
                         beatBatch[i].strategy.Fire(firePoint, crossHair);
                     }
+                }
+                if (fired)
+                {
+                    Debug.Log("triggered");
+                    playerAnimator.ResetTrigger("shootAttack");
                 }
                 yield return new WaitForSecondsRealtime(bpmInSeconds);
                 curBeat = (curBeat + 1) % BEAT_COUNT;
