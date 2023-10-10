@@ -374,6 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTypes:
   - {fileID: 11400000, guid: 62a236170f0ca4a499b6ed91c2854f3d, type: 2}
+  - {fileID: 11400000, guid: 0923d8bd63a1963498a8e66900dadcba, type: 2}
   maxEnemies: 30
   spawnInterval: 1
 --- !u!4 &337860469
@@ -69197,6 +69198,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: d7305db735465904eabec2102cef197b, type: 2}
   - m_RefCount: 25
     m_Data: {fileID: 11400000, guid: 47b380115ee6c0e46b50c01d84cfe3c1, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 6725
     m_Data: {fileID: 865697118, guid: 2125149fda94d2e43ad4f1c159f129e7, type: 3}
@@ -69206,6 +69209,8 @@ Tilemap:
     m_Data: {fileID: 1103225884, guid: 2125149fda94d2e43ad4f1c159f129e7, type: 3}
   - m_RefCount: 25
     m_Data: {fileID: 24690542, guid: 2125149fda94d2e43ad4f1c159f129e7, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 490
     m_Data:
@@ -74149,7 +74154,7 @@ Transform:
   m_GameObject: {fileID: 1342270833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.375, y: 0.125, z: -2.6512613}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

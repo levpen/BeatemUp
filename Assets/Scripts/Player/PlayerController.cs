@@ -8,9 +8,10 @@ namespace Beatemup.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        private static float HEALTH_MAX = 100;
         [SerializeField] private float speed = 50f;
         [SerializeField] private GameObject crossHair;
-        [SerializeField] private float health = 100;
+        [SerializeField] private float health = HEALTH_MAX;
 
         [SerializeField] private new Camera camera;
         [SerializeField] private HudController hud;
@@ -127,7 +128,7 @@ namespace Beatemup.Player
         private void OnTriggerEnter2D(Collider2D other)
         {
             // Debug.Log("trigger");
-            var target = other.gameObject.GetComponent<Experience>();
+            var target = other.gameObject.GetComponent<Consumable>();
             if (target != null && !target.magnetizing)
             {
                 target.magnetizing = true;
@@ -135,7 +136,7 @@ namespace Beatemup.Player
             }
         }
 
-        IEnumerator Magnetize(Experience target)
+        IEnumerator Magnetize(Consumable target)
         {
             while (Vector2.Distance(target.transform.position, transform.position) > .5f)
             {
@@ -150,6 +151,19 @@ namespace Beatemup.Player
         public void AddXp(float xpToAdd)
         {
             hud.AddXp(xpToAdd);
+        }
+
+        public void AddHp(float hp)
+        {
+            if (health + hp > HEALTH_MAX)
+            {
+                health = HEALTH_MAX;
+            }
+            else
+            {
+                health += hp;
+            }
+            hud.ChangeHp(health);
         }
         
         private void Defeated()

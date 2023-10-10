@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Beatemup
 {
-    public class Experience : Consumable
+    public class HealthPoints : Consumable
     {
-        public float xpPoints = 20;
+        public float hpPoints = 10;
 
         public override void Die(PlayerController pc)
         {
-            pc.AddXp(xpPoints);
+            pc.AddHp(hpPoints);
             Destroy(this.GameObject());
         }
     }

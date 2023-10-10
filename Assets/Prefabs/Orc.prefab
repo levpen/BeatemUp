@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5278019254237039957}
   - component: {fileID: -1419490986651598965}
-  - component: {fileID: 7465184776742562310}
+  - component: {fileID: 5738494495181372535}
   - component: {fileID: 7927502626716262657}
   - component: {fileID: 1124518497575197834}
   - component: {fileID: 5362725963832563656}
   m_Layer: 7
-  m_Name: Slime
+  m_Name: Orc
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &7465184776742562310
-CapsuleCollider2D:
+--- !u!61 &5738494495181372535
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,9 +95,19 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.002083969, y: -0.0312606}
-  m_Size: {x: 0.18245335, y: 0.18245338}
-  m_Direction: 0
+  m_Offset: {x: -0.009999998, y: 0.15}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.55, y: 0}
+    oldSize: {x: 0.2, y: 0.3}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.3}
+  m_EdgeRadius: 0
 --- !u!212 &7927502626716262657
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -139,7 +149,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 666634591, guid: 74222f35b71df3c488ca315d342eda60, type: 3}
+  m_Sprite: {fileID: 3725810117134594159, guid: ba5d900711e06a04d8262756919d7096, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -160,7 +170,7 @@ Animator:
   m_GameObject: {fileID: 4659698466660909706}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 447be8b665e32784bab6f9d04bd86e66, type: 2}
+  m_Controller: {fileID: 9100000, guid: 355af4edb006f8d42b2d64f90afa1771, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

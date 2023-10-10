@@ -133,5 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8588e7d958b4b1fac8d476473364e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpPoints: 100
+  xpPoints: 20
   magnetizing: 0
