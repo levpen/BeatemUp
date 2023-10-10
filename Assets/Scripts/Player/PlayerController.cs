@@ -2,7 +2,7 @@ using System.Collections;
 using Beatemup.Enemy;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 namespace Beatemup.Player
 {
@@ -19,13 +19,14 @@ namespace Beatemup.Player
         private Rigidbody2D rb;
         private Animator animator;
         private SpriteRenderer spriteRenderer;
+        [SerializeField] Transform firePoint;
         
         //Experience props
-        private float xp;
-        private int curLevel = 1;
-        [SerializeField] private float nextLevelXp = 100;
         public float magnetSpeed = 1;
-        [SerializeField] private float levelMultiplier = 1.2f;
+        private bool canMove = true;
+
+        private bool dead;
+
 
         private void Start()
         {
@@ -37,36 +38,55 @@ namespace Beatemup.Player
 
         public void Update()
         {
-            MouseMove();
+            if (canMove)
+            {
+                MouseMove();
 
-            movement.x = Input.GetAxis("Horizontal");
-            movement.y = Input.GetAxis("Vertical");
+                movement.x = Input.GetAxis("Horizontal");
+                movement.y = Input.GetAxis("Vertical");
             
-            //Animation
-            if (movement.x != 0.0f || movement.y != 0.0f)
-            {
-                animator.SetBool("isMoving", true);
-            }
-            else
-            {
-                animator.SetBool("isMoving", false);
-            }
+                //Animation
+                if (movement.x != 0.0f || movement.y != 0.0f)
+                {
+                    animator.SetBool("isMoving", true);
+                }
+                else
+                {
+                    animator.SetBool("isMoving", false);
+                }
             
-            //Sprite direction
-            if (movement.x < 0)
+                //Sprite direction
+                ChangeFireDirection(movement.x, 0);
+            }
+        }
+        private void MouseMove()
+        {
+            var aim = camera.ScreenToWorldPoint(Input.mousePosition);
+            aim.z = 0;
+            ChangeFireDirection(aim.x, transform.position.x);
+            
+            crossHair.transform.position = aim;
+        }
+
+        private void ChangeFireDirection(float x, float border)
+        {
+            if (x < border)
             {
                 spriteRenderer.flipX = true;
+                firePoint.localPosition = new Vector2(-0.255f, -0.255f);
             }
-            else if(movement.x > 0)
+            else if(x > border)
             {
                 spriteRenderer.flipX = false;
+                firePoint.localPosition = new Vector2(0.255f, -0.255f);
             }
         }
 
         private void FixedUpdate()
         {
             //movement logic
-            rb.MovePosition(rb.position + movement * (speed * Time.deltaTime));
+            if(!dead)
+                rb.MovePosition(rb.position + movement * (speed * Time.deltaTime));
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -78,37 +98,30 @@ namespace Beatemup.Player
             }
         }
 
-        private void MouseMove()
-        {
-            var aim = camera.ScreenToWorldPoint(Input.mousePosition);
-            aim.z = 0;
-            if (aim.x < transform.position.x)
-            {
-                spriteRenderer.flipX = true;
-            }
-
-            else if (aim.x > transform.position.x)
-            {
-                spriteRenderer.flipX = false;
-            }
-            crossHair.transform.position = aim;
-        }
-
-
         private void ReactToHit(float damage)
         {
             // Debug.Log("Player damaged");
-            
-            health -= damage;
-            hud.ChangeHp(health);
-            
-            // Debug.Log(health);
-            if (health <= 0)
+            if (!dead)
             {
-                //TODO
-                Debug.Log("dead");
-                //Die();
+                health -= damage;
+                spriteRenderer.color = Color.red;
+                hud.ChangeHp(health);
+                Invoke(nameof(ResetColor), 0.3f);
+                // Debug.Log(health);
+                if (health <= 0)
+                {
+                    //TODO
+                    dead = true;
+                    Destroy(rb);
+                    // Debug.Log("dead");
+                    Defeated();
+                }
             }
+        }
+
+        void ResetColor()
+        {
+            spriteRenderer.color = Color.white;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -133,22 +146,24 @@ namespace Beatemup.Player
 
             target.Die(this);
         }
-        
+
         public void AddXp(float xpToAdd)
         {
-            xp += xpToAdd;
-            while (xp >= nextLevelXp)
-            {
-                xp -= nextLevelXp;
-                curLevel++;
-                nextLevelXp *= levelMultiplier;
-                hud.LevelUp(curLevel);
-            }
+            hud.AddXp(xpToAdd);
+        }
+        
+        private void Defeated()
+        {
+            canMove = false;
+            animator.SetTrigger("isDefeated");
         }
 
         private void Die()
         {
             Destroy(this.GameObject());
+            //Time.timeScale = 0;
+            Cursor.visible = true;
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

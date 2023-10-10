@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114f5ed92f464527b60e4f9fdf45eb12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 70
   damage: 50
   shootPrefab: {fileID: 0}
   hitPrefab: {fileID: 0}

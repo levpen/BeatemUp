@@ -1,5 +1,7 @@
-﻿using TMPro;
+﻿using Beatemup.Beat;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Beatemup
 {
@@ -9,8 +11,16 @@ namespace Beatemup
         public TextMeshProUGUI hp;
         public Canvas abilitySelection;
         
-        private void Awake()
+        //Progress bar controls
+        public Image mask;
+        private int currentLvl = 1;
+        [SerializeField] float currentXp;
+        [SerializeField] float maximumXp = 100;
+        [SerializeField] private float levelMultiplier = 1.2f;
+        
+        private void Start()
         {
+            ChangeXp(currentXp);
             level.text = "Level: 1";
             hp.text = "HP: 100";
         }
@@ -19,15 +29,49 @@ namespace Beatemup
         {
             hp.text = "HP: " + newHp;
         }
-        public void LevelUp(int lvl)
+
+        public void AddXp(float xpToAdd)
         {
-            // abilitySelection.gameObject.SetActive(true);
-            //
-            // Time.timeScale = 0;
-            // Cursor.visible = true;
-            // AudioListener.pause = true;
+            ChangeXp(currentXp + xpToAdd);
+            while (currentXp >= maximumXp)
+            {
+                
+                LevelUp();
+            }
+        }
+
+        public void ChangeXp(float newXp)
+        {
+            currentXp = newXp;
+            mask.fillAmount = currentXp / maximumXp;
+        }
+
+        public void ActivateSelection()
+        {
+            StopCoroutine(BeatController.mainCoroutine);
+            abilitySelection.gameObject.SetActive(true);
+            //time stop
+            Time.timeScale = 0;
+            Cursor.visible = true;
+            AudioListener.pause = true;
+        }
+        public void DeactivateSelection()
+        {
+            abilitySelection.gameObject.SetActive(false);
+            //time stop
+            Time.timeScale = 1;
+            Cursor.visible = false;
+            AudioListener.pause = false;
+        }
+        public void LevelUp()
+        {
+            ActivateSelection();
             
-            level.text = "Level: " + lvl;
+            ChangeXp(0);
+            ++currentLvl;
+            maximumXp *= levelMultiplier;
+            
+            level.text = "Level: " + currentLvl;
         }
     }
 }

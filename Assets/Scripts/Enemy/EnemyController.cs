@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Beatemup.Enemy
@@ -11,29 +12,41 @@ namespace Beatemup.Enemy
         public float damage;
         
         public GameObject xpPrefab;
+        private Animator animator;
         
         private void Awake()
         {
             player = GameObject.FindWithTag("Player").transform;
         }
 
+        private void Start()
+        {
+            animator = GetComponent<Animator>();
+        }
+
         private void Update()
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, Time.deltaTime * moveSpeed);
+            if(player != null)
+                transform.position = Vector2.MoveTowards(transform.position, player.position, Time.deltaTime * moveSpeed);
         }
 
 
         public void ReactToHit(float dmg)
         {
-            //Debug.Log("Hit");
+            // Debug.Log("Hit");
             health -= dmg;
-            //Debug.Log(health);
+            // Debug.Log(health);
             if (health <= 0)
             {
-                Die();
+                Defeated();
             }
         }
 
+        void Defeated()
+        {
+            Destroy(GetComponent<Collider2D>());
+            animator.SetTrigger("Defeated");
+        }
         private void Die()
         {
             Instantiate(xpPrefab, transform.position, transform.rotation);
