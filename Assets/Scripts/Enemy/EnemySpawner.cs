@@ -9,13 +9,20 @@ namespace Beatemup.Enemy
         [SerializeField] private int maxEnemies = 100;
         [SerializeField] private float spawnInterval = 0.5f;
         
+        public static Collider2D spawnZone;
+        
 
         private EnemyFactory enemyFactory;
 
         private float spawnTimer;
         private int enemiesSpawned;
 
-        void Start() => enemyFactory = new EnemyFactory();
+        void Start()
+        {
+            enemyFactory = new EnemyFactory();
+            spawnZone = GetComponent<Collider2D>();
+        }
+
 
         void Update()
         {

@@ -16,6 +16,7 @@ namespace Beatemup.Enemy
         public GameObject hpPrefab;
         private Animator animator;
         private SpriteRenderer spriteRenderer;
+        private bool dead;
         
 
         private void Awake()
@@ -31,7 +32,7 @@ namespace Beatemup.Enemy
 
         private void Update()
         {
-            if (player != null)
+            if (player != null && !dead)
             {
                 var curDir = (transform.position - player.position).x;
                 if (curDir > 0)
@@ -59,6 +60,7 @@ namespace Beatemup.Enemy
 
         void Defeated()
         {
+            dead = true;
             Destroy(GetComponent<Collider2D>());
             animator.SetTrigger("Defeated");
         }

@@ -59,9 +59,16 @@ namespace Beatemup.Enemy
         {
             GameObject instance = Object.Instantiate(enemyPrefab);
 
+            Vector3 curRndPoint;
+            do
+            {
+                curRndPoint = RandomPointInAnnulus(instance.transform.position, distance, distance + RadiusDelta);
+            } while (!EnemySpawner.spawnZone.bounds.Contains(curRndPoint + playerPosition.position));
+
             instance.transform.position =
                 playerPosition.position +
-                (Vector3)RandomPointInAnnulus(instance.transform.position, distance, distance + RadiusDelta);
+                curRndPoint;
+            
             var controller = instance.GetComponent<EnemyController>();
             controller.moveSpeed = speed;
             controller.health = health;
