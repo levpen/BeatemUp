@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Beatemup.Beat
 {
@@ -10,7 +12,7 @@ namespace Beatemup.Beat
         private AudioSource[] sources;
         private const int BEAT_COUNT = 8; //playing with 1/8 notes
 
-        [SerializeField] private int[,] batchArray; //TODO: possible change of structure
+        [SerializeField] private List<List<int>> batchArray;
 
         [SerializeField] private float bpm = 120f;
         private float bpmInSeconds;
@@ -20,6 +22,14 @@ namespace Beatemup.Beat
         [SerializeField] private Animator playerAnimator;
         public static Coroutine mainCoroutine;
 
+        private int instrumentsNumber;
+
+        // private bool initialInstrument = true;
+
+        public void StartBeatLoop()
+        {
+            mainCoroutine = StartCoroutine(PlayBatch());
+        }
 
         void Awake()
         {
@@ -31,12 +41,23 @@ namespace Beatemup.Beat
                 comp.clip = beatMap.beat.clip;
             }
 
-            //Hat, kick, snare
-            batchArray = new[,]
-            {
-                { 0, 1, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 1, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }
-            };
+            instrumentsNumber = beatBatch.Length;
+            //Hat, kick, snare, clap
+            batchArray = new List<List<int>>();
+            for (int i = 0; i < BEAT_COUNT; ++i)
+            { 
+                batchArray.Add(new List<int>(instrumentsNumber));
+                for (int j = 0; j < instrumentsNumber; ++j)
+                {
+                    batchArray[i].Add(0);
+                }
+                Debug.Log(batchArray[i].Count);
+            }
+
             sources = GetComponents<AudioSource>();
+            AddInstrument(1);
+            AddInstrument(3);
+            // initialInstrument = false;
         }
 
         public void AddInstrument(int instrument)
@@ -47,25 +68,39 @@ namespace Beatemup.Beat
                 case (Batch.hat):
                     for (int i = 0; i < BEAT_COUNT; ++i)
                     {
-                        batchArray[i, (int)num] = 1;
+                        batchArray[i][(int)num] = 1;
                     }
-
+                    break;
+                case (Batch.kick):
+                    for (int i = 0; i < BEAT_COUNT; ++i)
+                    {
+                        if (i == 0 || i == 4)
+                            batchArray[i][(int)num] = 1;
+                    }
                     break;
                 case (Batch.snare):
                     for (int i = 0; i < BEAT_COUNT; ++i)
                     {
                         if (i == 2 || i == 6)
-                            batchArray[i, (int)num] = 1;
+                            batchArray[i][(int)num] = 1;
                     }
-
                     break;
+                case (Batch.clap):
+                    for (int i = 0; i < BEAT_COUNT; ++i)
+                    {
+                        if (i == 1)
+                            batchArray[i][(int)num] = 1;
+                    }
+                    break;
+                
             }
-            mainCoroutine = StartCoroutine(PlayBatch());
+            // if(!initialInstrument)
+            //     mainCoroutine = StartCoroutine(PlayBatch());
         }
 
         private void Start()
         {
-            mainCoroutine = StartCoroutine(PlayBatch());
+            // StartBeatLoop();
         }
 
         private IEnumerator PlayBatch()
@@ -77,7 +112,7 @@ namespace Beatemup.Beat
                 bool fired = false;
                 for (int i = 0; i < sources.Length; ++i)
                 {
-                    if (batchArray[curBeat, i] == 1)
+                    if (batchArray[curBeat][i] == 1)
                     {
                         if (!fired)
                         {

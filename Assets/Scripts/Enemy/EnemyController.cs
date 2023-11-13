@@ -1,5 +1,4 @@
 ﻿using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 namespace Beatemup.Enemy
@@ -67,14 +66,8 @@ namespace Beatemup.Enemy
         private void Die()
         {
             var rnd = Random.Range(0f, 1f);
-            if (rnd < 0.1f)
-            {
-                Instantiate(hpPrefab, transform.position, transform.rotation);
-            }
-            else
-            {
-                Instantiate(xpPrefab, transform.position, transform.rotation);
-            }
+            var transform1 = transform;
+            Instantiate(rnd < 0.1f ? hpPrefab : xpPrefab, transform1.position, transform1.rotation);
             Destroy(this.GameObject());
         }
     }

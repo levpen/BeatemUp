@@ -1,15 +1,13 @@
-﻿using Beatemup.Beat;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Beatemup
+namespace Beatemup.UI
 {
     public class HudController : MonoBehaviour
     {
         public TextMeshProUGUI level;
         public TextMeshProUGUI hp;
-        public Canvas abilitySelection;
         
         //Progress bar controls
         public Image mask;
@@ -17,7 +15,8 @@ namespace Beatemup
         [SerializeField] float currentXp;
         [SerializeField] float maximumXp = 100;
         [SerializeField] private float levelMultiplier = 1.2f;
-        
+        [SerializeField] private UIController uiConroller;
+
         private void Start()
         {
             ChangeXp(currentXp);
@@ -35,7 +34,6 @@ namespace Beatemup
             ChangeXp(currentXp + xpToAdd);
             while (currentXp >= maximumXp)
             {
-                
                 LevelUp();
             }
         }
@@ -45,27 +43,10 @@ namespace Beatemup
             currentXp = newXp;
             mask.fillAmount = currentXp / maximumXp;
         }
-
-        public void ActivateSelection()
-        {
-            StopCoroutine(BeatController.mainCoroutine);
-            abilitySelection.gameObject.SetActive(true);
-            //time stop
-            Time.timeScale = 0;
-            Cursor.visible = true;
-            AudioListener.pause = true;
-        }
-        public void DeactivateSelection()
-        {
-            abilitySelection.gameObject.SetActive(false);
-            //time stop
-            Time.timeScale = 1;
-            Cursor.visible = false;
-            AudioListener.pause = false;
-        }
+        
         public void LevelUp()
         {
-            ActivateSelection();
+            uiConroller.ActivateSelection();
             
             ChangeXp(0);
             ++currentLvl;

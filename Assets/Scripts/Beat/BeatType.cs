@@ -7,6 +7,5 @@ namespace Beatemup.Beat
     public class BeatType : ScriptableObject
     {
         public AudioClip clip;
-        public float timeInterval;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using Beatemup.Enemy;
+using Beatemup.UI;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,7 +16,10 @@ namespace Beatemup.Player
 
         [SerializeField] private new Camera camera;
         [SerializeField] private HudController hud;
+        [SerializeField] private TrailRenderer trail;
         private Vector2 movement;
+
+         
 
         private Rigidbody2D rb;
         private Animator animator;
@@ -27,6 +31,13 @@ namespace Beatemup.Player
         private bool canMove = true;
 
         private bool dead;
+        
+        private bool canDash = true;
+        private bool isDashing;
+        public float dashForce = 10;
+        public float dashTime = 0.2f;
+        public float dashColldown = 1;
+        [SerializeField] private UIController uiController;
 
 
         private void Start()
@@ -42,10 +53,18 @@ namespace Beatemup.Player
             if (canMove)
             {
                 MouseMove();
-
+                if (isDashing)
+                    return;
                 movement.x = Input.GetAxis("Horizontal");
                 movement.y = Input.GetAxis("Vertical");
-            
+                
+                //Dash mechanic
+                if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                {
+                    //rb.AddForce(movement.normalized*dashForce);
+                    StartCoroutine(Dash());
+                }
+                
                 //Animation
                 if (movement.x != 0.0f || movement.y != 0.0f)
                 {
@@ -59,6 +78,20 @@ namespace Beatemup.Player
                 //Sprite direction
                 ChangeFireDirection(movement.x, 0);
             }
+        }
+
+        private IEnumerator Dash()
+        {
+            canDash = false;
+            isDashing = true;
+            // Debug.Log(rb.velocity);
+            rb.AddForce(movement.normalized*dashForce);
+            trail.emitting = true;
+            yield return new WaitForSeconds(dashTime);
+            trail.emitting = false;
+            isDashing = false;
+            yield return new WaitForSeconds(dashColldown);
+            canDash = true;
         }
         private void MouseMove()
         {

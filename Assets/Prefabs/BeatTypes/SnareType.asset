@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e7adca886143b9814760a168baba0c, type: 3}
   m_Name: SnareType
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 2ff8c31e1229b3a4586aca2c5654ecc8, type: 3}
-  timeInterval: 0.5
+  clip: {fileID: 8300000, guid: 1d7b573060f1fc64eb61a15750f2f85d, type: 3}

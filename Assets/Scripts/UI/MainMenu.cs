@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Beatemup
+namespace Beatemup.UI
 {
     public class MainMenu : MonoBehaviour
     {

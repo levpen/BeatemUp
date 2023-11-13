@@ -7,6 +7,7 @@ namespace Beatemup.Beat
     {
         hat,
         kick,
-        snare
+        snare,
+        clap
     }
 }

@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e7adca886143b9814760a168baba0c, type: 3}
   m_Name: HiHatType
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 4687710dfad543b4bac89b1a70166dee, type: 3}
-  timeInterval: 0.25
+  clip: {fileID: 8300000, guid: 57aa7440aa37e4044a849071400ce27d, type: 3}
