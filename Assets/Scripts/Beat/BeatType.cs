@@ -11,8 +11,22 @@ namespace Beatemup.Beat
         public AudioClip clip;
         public WeaponStrategy strategy;
         [SerializeField] private string description;
-        [SerializeField] private Batch batch;
+        public Batch batch;
+        [SerializeField] private int[] pattern;
 
+        public void SetPattern(int[] arr)
+        {
+            int n = arr.Length;
+            pattern = new int [n];
+            for(int i = 0; i < n; ++i)
+            {
+                pattern[i] = arr[i];
+            }
+        }
+        public int[] GetPattern()
+        {
+            return pattern;
+        }
         public string GetName()
         {
             return batch.ToString();

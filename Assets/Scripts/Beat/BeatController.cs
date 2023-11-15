@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -34,11 +35,11 @@ namespace Beatemup.Beat
         void Awake()
         {
             bpmInSeconds = 60f / bpm / (BEAT_COUNT / 4f);
-            foreach (var beatMap in beatBatch)
+            foreach (var beatType in beatBatch)
             {
                 var comp = this.AddComponent<AudioSource>();
                 comp.playOnAwake = false;
-                comp.clip = beatMap.clip;
+                comp.clip = beatType.clip;
             }
 
             instrumentsNumber = beatBatch.Length;
@@ -63,43 +64,10 @@ namespace Beatemup.Beat
         public void AddInstrument(int instrument)
         {
             Batch num = (Batch)instrument;
-            switch (num)
+            var b = Array.Find(beatBatch, x => x.batch == num);
+            foreach(var i in b.GetPattern())
             {
-                //instruments beat pattern
-                case (Batch.hat):
-                    for (int i = 0; i < BEAT_COUNT; ++i)
-                    {
-                        batchArray[i][(int)num] = 1;
-                    }
-                    break;
-                case (Batch.kick):
-                    for (int i = 0; i < BEAT_COUNT; ++i)
-                    {
-                        if (i == 0 || i == 4)
-                            batchArray[i][(int)num] = 1;
-                    }
-                    break;
-                case (Batch.snare):
-                    for (int i = 0; i < BEAT_COUNT; ++i)
-                    {
-                        if (i == 2 || i == 6)
-                            batchArray[i][(int)num] = 1;
-                    }
-                    break;
-                case (Batch.clap):
-                    for (int i = 0; i < BEAT_COUNT; ++i)
-                    {
-                        if (i == 1)
-                            batchArray[i][(int)num] = 1;
-                    }
-                    break;
-                case (Batch.kickE):
-                    for (int i = 0; i < BEAT_COUNT; ++i)
-                    {
-                        if (i == 5)
-                            batchArray[i][(int)num] = 1;
-                    }
-                    break;
+                batchArray[i][(int)num] = 1;
             }
             // if(!initialInstrument)
             //     mainCoroutine = StartCoroutine(PlayBatch());
