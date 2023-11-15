@@ -9,6 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50f9474ce0174cebb90473ae3c88d1fe, type: 3}
-  m_Name: Hi-hat
+  m_Script: {fileID: 11500000, guid: 11ac76a1ad81405ea1ebc768b0358639, type: 3}
+  m_Name: KickEType
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 12d2d6616a2cb434bad4cd77708755f4, type: 3}
+  strategy: {fileID: 11400000, guid: 5acfd854c5c0af44c8c0d88835a83c34, type: 2}
+  description: 
+  batch: 4

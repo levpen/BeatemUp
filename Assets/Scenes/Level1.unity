@@ -688,8 +688,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities:
-  - {fileID: 11400000, guid: ba01b3d7e7c754b4bb860648c45790a7, type: 2}
-  - {fileID: 11400000, guid: 3b53a541202558543986449141ea116f, type: 2}
+  - {fileID: 11400000, guid: 320fa7f9740c03045beba16796b2a4b3, type: 2}
+  - {fileID: 11400000, guid: bb4e08dfd05be6e42ae5e4d14fe97a87, type: 2}
+  - {fileID: 11400000, guid: 93c31b6ea93278d49a78096850152a39, type: 2}
+  - {fileID: 11400000, guid: c9e7a5f9ead1d364b8e84815dd833780, type: 2}
   beatController: {fileID: 1756372492}
   btns:
   - {fileID: 582122462}
@@ -75489,6 +75491,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: efe9877792ff07d4b929d61770bbc1b8, type: 2}
   - {fileID: 11400000, guid: c9e7a5f9ead1d364b8e84815dd833780, type: 2}
   - {fileID: 11400000, guid: 320fa7f9740c03045beba16796b2a4b3, type: 2}
+  - {fileID: 11400000, guid: 93c31b6ea93278d49a78096850152a39, type: 2}
   bpm: 120
   firePoint: {fileID: 550760895}
   crossHair: {fileID: 1667724398}

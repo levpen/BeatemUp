@@ -50,11 +50,18 @@ namespace Beatemup.Enemy
         {
             // Debug.Log("Hit");
             health -= dmg;
+            spriteRenderer.color = Color.blue;
+            Invoke(nameof(ResetColor), 0.3f);
             // Debug.Log(health);
             if (health <= 0)
             {
                 Defeated();
             }
+        }
+        
+        void ResetColor()
+        {
+            spriteRenderer.color = Color.white;
         }
 
         void Defeated()

@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46e7adca886143b9814760a168baba0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 11ac76a1ad81405ea1ebc768b0358639, type: 3}
   m_Name: SnareType
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 1d7b573060f1fc64eb61a15750f2f85d, type: 3}
+  strategy: {fileID: 11400000, guid: ad0652d75d8af8845a20c6f5c96c5a49, type: 2}
+  description: 
+  batch: 2

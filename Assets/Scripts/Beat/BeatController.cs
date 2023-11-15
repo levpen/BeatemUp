@@ -8,7 +8,7 @@ namespace Beatemup.Beat
 {
     public class BeatController : MonoBehaviour
     {
-        [SerializeField] private BeatMap[] beatBatch;
+        [SerializeField] private BeatType[] beatBatch;
         private AudioSource[] sources;
         private const int BEAT_COUNT = 8; //playing with 1/8 notes
 
@@ -38,7 +38,7 @@ namespace Beatemup.Beat
             {
                 var comp = this.AddComponent<AudioSource>();
                 comp.playOnAwake = false;
-                comp.clip = beatMap.beat.clip;
+                comp.clip = beatMap.clip;
             }
 
             instrumentsNumber = beatBatch.Length;
@@ -56,7 +56,7 @@ namespace Beatemup.Beat
 
             sources = GetComponents<AudioSource>();
             AddInstrument(1);
-            AddInstrument(3);
+            // AddInstrument(3);
             // initialInstrument = false;
         }
 
@@ -65,6 +65,7 @@ namespace Beatemup.Beat
             Batch num = (Batch)instrument;
             switch (num)
             {
+                //instruments beat pattern
                 case (Batch.hat):
                     for (int i = 0; i < BEAT_COUNT; ++i)
                     {
@@ -92,7 +93,13 @@ namespace Beatemup.Beat
                             batchArray[i][(int)num] = 1;
                     }
                     break;
-                
+                case (Batch.kickE):
+                    for (int i = 0; i < BEAT_COUNT; ++i)
+                    {
+                        if (i == 5)
+                            batchArray[i][(int)num] = 1;
+                    }
+                    break;
             }
             // if(!initialInstrument)
             //     mainCoroutine = StartCoroutine(PlayBatch());

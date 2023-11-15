@@ -8,6 +8,7 @@ namespace Beatemup.Beat
         hat,
         kick,
         snare,
-        clap
+        clap,
+        kickE
     }
 }

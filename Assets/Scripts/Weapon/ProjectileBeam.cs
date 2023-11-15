@@ -1,19 +1,17 @@
+﻿using System;
 using Beatemup.Enemy;
-using Beatemup.Weapon;
 using UnityEngine;
 
-namespace Beatemup
+namespace Beatemup.Weapon
 {
-    public class ProjectileCircle : Projectile
+    public class ProjectileBeam : Projectile
     {
-        [SerializeField] private SpriteRenderer circle;
 
-        private void FixedUpdate()
+        new void Start()
         {
-            var curScale = transform.localScale;
-            transform.localScale = new Vector3(curScale.x+Time.fixedDeltaTime, curScale.y+Time.fixedDeltaTime, 0);
+            base.Start();
+            transform.Translate(GetComponent<SpriteRenderer>().bounds.size.x/2, 0, 0);
         }
-        
         private void OnTriggerEnter2D(Collider2D other)
         {
             var target = other.gameObject.GetComponent<EnemyController>();

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ac76a1ad81405ea1ebc768b0358639, type: 3}
-  m_Name: ClapMap
+  m_Script: {fileID: 11500000, guid: 448f9de2601c4418b3f0bf9e0a8922bd, type: 3}
+  m_Name: CirclePassiveShot
   m_EditorClassIdentifier: 
-  beat: {fileID: 11400000, guid: 34fa252668259534fb3088f06e8e593b, type: 2}
-  strategy: {fileID: 11400000, guid: bf97da35fbc7d234caaaf0f0ff19e12d, type: 2}
+  projectileLifetime: 1
+  projectilePrefab: {fileID: 8921925493328435208, guid: 5ae5269bd1d07ee44a63a7b56d787827, type: 3}

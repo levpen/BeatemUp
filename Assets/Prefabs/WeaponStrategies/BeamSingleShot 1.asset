@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ac76a1ad81405ea1ebc768b0358639, type: 3}
-  m_Name: KickMap
+  m_Script: {fileID: 11500000, guid: e70ce66ddc8a41b2ac19a1b12a11afe4, type: 3}
+  m_Name: BeamSingleShot 1
   m_EditorClassIdentifier: 
-  beat: {fileID: 11400000, guid: 4fec11b37b4a3224b95f87357b58994b, type: 2}
-  strategy: {fileID: 11400000, guid: c0ee1399298eb4d438d09f1a4b280801, type: 2}
+  projectileLifetime: 0.1
+  projectilePrefab: {fileID: 8921925493328435208, guid: 79b73a85d8c1431418198f559574e43e, type: 3}

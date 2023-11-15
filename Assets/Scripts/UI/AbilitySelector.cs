@@ -11,7 +11,7 @@ namespace Beatemup.UI
     public class AbilitySelector : MonoBehaviour
     {
         private const int btnsNum = 3;
-        [SerializeField] private List<Ability> abilities;
+        [SerializeField] private List<BeatType> abilities;
         [SerializeField] private BeatController beatController;
         [SerializeField] private Button[] btns = new Button[btnsNum];
         private int[] btnsIndxes = new int[btnsNum];
@@ -28,7 +28,7 @@ namespace Beatemup.UI
         void ActivateButton(int btnIndex, int abilityIndex)
         {
             btnsIndxes[btnIndex] = abilityIndex;
-            btns[btnIndex].GetComponentInChildren<TextMeshProUGUI>().text = abilities[abilityIndex].name;
+            btns[btnIndex].GetComponentInChildren<TextMeshProUGUI>().text = abilities[abilityIndex].GetName();
         }
 
         public void UpdateAbilities()
@@ -70,7 +70,7 @@ namespace Beatemup.UI
             }
             else
             {
-                beatController.AddInstrument(abilities[btnsIndxes[btnIndex]].index);
+                beatController.AddInstrument(abilities[btnsIndxes[btnIndex]].GetIndex());
                 RemoveAbilityFromList(btnsIndxes[btnIndex]);
                 uiController.DeactivateSelection();
             }
