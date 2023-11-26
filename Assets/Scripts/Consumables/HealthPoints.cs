@@ -1,8 +1,7 @@
 ﻿using Beatemup.Player;
 using Unity.VisualScripting;
-using UnityEngine;
 
-namespace Beatemup
+namespace Beatemup.Consumables
 {
     public class HealthPoints : Consumable
     {

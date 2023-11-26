@@ -14,6 +14,7 @@ namespace Beatemup.Enemy
                 .SetDistance(enemyType.distance)
                 .SetHealth(enemyType.health)
                 .SetDamage(enemyType.damage)
+                .SetMoneyToAdd(enemyType.moneyToAdd)
                 .SetPlayerPosition(playerPos);
             return builder.Build();
         }

@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 57aa7440aa37e4044a849071400ce27d, type: 3}
   strategy: {fileID: 11400000, guid: 248e84240ccfd764caa858d52b116afb, type: 2}
+  description: 
+  batch: 0
+  pattern: 0000000001000000020000000300000004000000050000000600000007000000

@@ -8,10 +8,13 @@ namespace Beatemup.UI
     {
         public TextMeshProUGUI level;
         public TextMeshProUGUI hp;
+        public TextMeshProUGUI money;
         
         //Progress bar controls
         public Image mask;
         private int currentLvl = 1;
+
+        [SerializeField] int currentMoney;
         [SerializeField] float currentXp;
         [SerializeField] float maximumXp = 100;
         [SerializeField] private float levelMultiplier = 1.2f;
@@ -22,6 +25,7 @@ namespace Beatemup.UI
             ChangeXp(currentXp);
             level.text = "Level: 1";
             hp.text = "HP: 100";
+            money.text = "" + currentMoney;
         }
 
         public void ChangeHp(float newHp)
@@ -36,6 +40,12 @@ namespace Beatemup.UI
             {
                 LevelUp();
             }
+        }
+
+        public void ChangeMoney(int moneyToAdd)
+        {
+            currentMoney += moneyToAdd;
+            money.text = "" + currentMoney;
         }
 
         public void ChangeXp(float newXp)

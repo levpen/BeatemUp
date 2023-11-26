@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80a61fb4f3cc0444cbf8cf3b0b4e7fd1
+guid: d48df9cc562b918469edb76a067d8032
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,202 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spritesheet_UI_Flat_0
+      name: 01coin_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 206
-        width: 125
-        height: 135
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34eb2722564b3ff4d998415a202cf58a
-      internalID: -1218820135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spritesheet_UI_Flat_1
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 202
-        width: 60
-        height: 139
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c2f3e42cbaa19f4c9fcbf2238794b5d
-      internalID: 2028749449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spritesheet_UI_Flat_2
-      rect:
-        serializedVersion: 2
-        x: 410
-        y: 159
-        width: 50
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6bace23c206f674dbea65f7001c30dc
-      internalID: 559145039
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spritesheet_UI_Flat_3
-      rect:
-        serializedVersion: 2
-        x: 620
-        y: 13
-        width: 136
-        height: 72
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b7cc6818b5a0a24b9f3e008acd3b060
-      internalID: -1530183103
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spritesheet_UI_Flat_4
-      rect:
-        serializedVersion: 2
-        x: 213
-        y: 206
-        width: 124
-        height: 139
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 933eda1b05a5b674095f25e78b353483
-      internalID: 957805589
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spritesheet_UI_Flat_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 147
-        width: 123
-        height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3c26238ab0f5064698b2a259873951f
-      internalID: -860800581
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spritesheet_UI_Flat_6
-      rect:
-        serializedVersion: 2
-        x: 693
-        y: 136
-        width: 68
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac43b9d91fe72f540b256b7cf1fbfcfd
-      internalID: -1375285916
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spritesheet_UI_Flat_7
-      rect:
-        serializedVersion: 2
-        x: 582
-        y: 263
-        width: 21
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16eee1ea43123f9418a51627aecf4fcf
-      internalID: 1959615838
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spritesheet_UI_Flat_8
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 162
-        width: 35
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ae725d30e007e1448994b45280879f8
-      internalID: -558508643
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spritesheet_UI_Flat_9
-      rect:
-        serializedVersion: 2
-        x: 539
-        y: 62
-        width: 38
-        height: 70
+        x: 0
+        y: 0
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,8 +124,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 287a930ac5b9bfd48839cc713091310b
-      internalID: -1322288691
+      spriteID: 3f88a50cd6010534e8bc674336726cc4
+      internalID: -1548008785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01coin_1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5716d9b7154eac49ab91261be0c1915
+      internalID: -2026295982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01coin_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94a137fe11cae094d8c7c6b66ec85a8f
+      internalID: -2032536349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01coin_3
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6822e1bc67bb4bb4f8417976060ebe80
+      internalID: -1668348917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01coin_4
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 876c4f3f4cd82b943b9d4fa509c1bed2
+      internalID: -1633114877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01coin_5
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b654193070e1042ab2439c8d362e3f
+      internalID: 116317282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01coin_6
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7589f4bb689883744a13dac676bf80ec
+      internalID: -1090062802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01coin_7
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acdb288f5dd1efb4ebc5d244e4ac5813
+      internalID: 1743597151
       vertices: []
       indices: 
       edges: []
@@ -330,16 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Spritesheet_UI_Flat_0: -1218820135
-      Spritesheet_UI_Flat_1: 2028749449
-      Spritesheet_UI_Flat_2: 30605279
-      Spritesheet_UI_Flat_3: -1530183103
-      Spritesheet_UI_Flat_4: 957805589
-      Spritesheet_UI_Flat_5: -860800581
-      Spritesheet_UI_Flat_6: -1375285916
-      Spritesheet_UI_Flat_7: 1959615838
-      Spritesheet_UI_Flat_8: -558508643
-      Spritesheet_UI_Flat_9: -1322288691
+      01coin_0: -1548008785
+      01coin_1: -2026295982
+      01coin_2: -2032536349
+      01coin_3: -1668348917
+      01coin_4: -1633114877
+      01coin_5: 116317282
+      01coin_6: -1090062802
+      01coin_7: 1743597151
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

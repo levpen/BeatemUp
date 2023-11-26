@@ -1,16 +1,16 @@
-﻿using Beatemup.Player;
+﻿
+
+using Beatemup.Player;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Beatemup
+namespace Beatemup.Consumables
 {
-    public class Experience : Consumable
+    public class SpeedBooster : Consumable
     {
-        public float xpPoints = 20;
-
+        [SerializeField] private double multiplier = 1.2;
         public override void Die(PlayerController pc)
         {
-            pc.AddXp(xpPoints);
             Destroy(this.GameObject());
         }
     }

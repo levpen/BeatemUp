@@ -1,7 +1,7 @@
 ﻿using Beatemup.Player;
 using UnityEngine;
 
-namespace Beatemup
+namespace Beatemup.Consumables
 {
     public abstract class Consumable : MonoBehaviour
     {

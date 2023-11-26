@@ -32,9 +32,15 @@ namespace Beatemup.Beat
             mainCoroutine = StartCoroutine(PlayBatch());
         }
 
-        void Awake()
+        private float UpdateBpmInSeconds()
         {
             bpmInSeconds = 60f / bpm / (BEAT_COUNT / 4f);
+            return bpmInSeconds;
+        }
+        
+        void Awake()
+        {
+            UpdateBpmInSeconds();
             foreach (var beatType in beatBatch)
             {
                 var comp = this.AddComponent<AudioSource>();
@@ -57,8 +63,13 @@ namespace Beatemup.Beat
 
             sources = GetComponents<AudioSource>();
             AddInstrument(1);
-            // AddInstrument(3);
-            // initialInstrument = false;
+        }
+
+        public void UpdateBpm(float newBpm)
+        {
+            bpm = newBpm;
+            UpdateBpmInSeconds();
+            
         }
 
         public void AddInstrument(int instrument)
@@ -69,13 +80,6 @@ namespace Beatemup.Beat
             {
                 batchArray[i][(int)num] = 1;
             }
-            // if(!initialInstrument)
-            //     mainCoroutine = StartCoroutine(PlayBatch());
-        }
-
-        private void Start()
-        {
-            // StartBeatLoop();
         }
 
         private IEnumerator PlayBatch()

@@ -10,6 +10,7 @@ namespace Beatemup.UI
         [SerializeField] private BeatController beatController;
         [SerializeField] private Canvas abilitySelection;
         [SerializeField] private Canvas pauseMenu;
+        [SerializeField] private Canvas shopMenu;
         [SerializeField] private TextMeshProUGUI timerText;
         [SerializeField] private AbilitySelector abilitySelector;
         private float timer;
@@ -25,6 +26,10 @@ namespace Beatemup.UI
             if (!abilitySelection.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
             {
                 TogglePause();
+            }
+            if (!abilitySelection.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.I))
+            {
+                ToggleShop();
             }
 
             if (!timeStopped)
@@ -61,6 +66,19 @@ namespace Beatemup.UI
             else
             {
                 pauseMenu.gameObject.SetActive(false);
+                ResumeTime();
+            }
+        }
+        public void ToggleShop()
+        {
+            if (!shopMenu.gameObject.activeSelf)
+            {
+                shopMenu.gameObject.SetActive(true);
+                StopTime();
+            }
+            else
+            {
+                shopMenu.gameObject.SetActive(false);
                 ResumeTime();
             }
         }

@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Hp
   - SpawnZone
+  - HUD
   layers:
   - Default
   - TransparentFX

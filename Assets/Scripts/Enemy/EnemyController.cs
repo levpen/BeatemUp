@@ -1,15 +1,17 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
+using Beatemup.UI;
 
 namespace Beatemup.Enemy
 {
     public class EnemyController : MonoBehaviour
     {
-        
+        private HudController hudController;
         private static Transform player;
         public float moveSpeed;
         public float health;
         public float damage;
+        public int moneyToAdd;
         
         public GameObject xpPrefab;
         public GameObject hpPrefab;
@@ -21,6 +23,7 @@ namespace Beatemup.Enemy
         private void Awake()
         {
             player = GameObject.FindWithTag("Player").transform;
+            hudController = GameObject.FindWithTag("HUD").GetComponent<HudController>();
         }
 
         private void Start()
@@ -74,6 +77,7 @@ namespace Beatemup.Enemy
         {
             var rnd = Random.Range(0f, 1f);
             var transform1 = transform;
+            hudController.ChangeMoney(moneyToAdd);
             Instantiate(rnd < 0.1f ? hpPrefab : xpPrefab, transform1.position, transform1.rotation);
             Destroy(this.GameObject());
         }

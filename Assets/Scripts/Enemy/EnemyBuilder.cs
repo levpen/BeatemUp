@@ -12,6 +12,7 @@ namespace Beatemup.Enemy
         private float distance;
         private float health;
         private float damage;
+        private int moneyToAdd;
         private Transform playerPosition;
 
         public EnemyBuilder SetBasePrefab(GameObject prefab)
@@ -48,6 +49,11 @@ namespace Beatemup.Enemy
             damage = dmg;
             return this;
         }
+        public EnemyBuilder SetMoneyToAdd(int money)
+        {
+            moneyToAdd=money;
+            return this;
+        }
 
         public EnemyBuilder SetPlayerPosition(Transform pos)
         {
@@ -73,6 +79,7 @@ namespace Beatemup.Enemy
             controller.moveSpeed = speed;
             controller.health = health;
             controller.damage = damage;
+            controller.moneyToAdd = moneyToAdd;
 
             return instance;
         }

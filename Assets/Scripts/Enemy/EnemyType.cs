@@ -11,5 +11,6 @@ namespace Beatemup.Enemy
         public float distance;
         public float health;
         public float damage;
+        public int moneyToAdd;
     }
 }

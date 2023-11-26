@@ -16,3 +16,4 @@ MonoBehaviour:
   strategy: {fileID: 11400000, guid: 5acfd854c5c0af44c8c0d88835a83c34, type: 2}
   description: 
   batch: 4
+  pattern: 05000000

@@ -1,4 +1,5 @@
 using System.Collections;
+using Beatemup.Consumables;
 using Beatemup.Enemy;
 using Beatemup.UI;
 using Unity.VisualScripting;
@@ -17,6 +18,7 @@ namespace Beatemup.Player
         [SerializeField] private new Camera camera;
         [SerializeField] private HudController hud;
         [SerializeField] private TrailRenderer trail;
+        
         private Vector2 movement;
 
          
