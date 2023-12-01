@@ -27,6 +27,9 @@ namespace Beatemup.UI
             hp.text = "HP: 100";
             money.text = "" + currentMoney;
         }
+        public int GetMoney() {
+            return currentMoney;
+        }
 
         public void ChangeHp(float newHp)
         {

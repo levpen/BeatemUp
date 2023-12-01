@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileLifetime: 1
   projectilePrefab: {fileID: 8921925493328435208, guid: 5ae5269bd1d07ee44a63a7b56d787827, type: 3}
+  price: 200

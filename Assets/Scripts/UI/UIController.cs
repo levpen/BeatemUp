@@ -13,6 +13,7 @@ namespace Beatemup.UI
         [SerializeField] private Canvas shopMenu;
         [SerializeField] private TextMeshProUGUI timerText;
         [SerializeField] private AbilitySelector abilitySelector;
+        bool active;
         private float timer;
         public bool timeStopped;
         

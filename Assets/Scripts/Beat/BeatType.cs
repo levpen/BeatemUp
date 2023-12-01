@@ -1,4 +1,7 @@
-﻿using Beatemup.Weapon;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Beatemup.Weapon;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,20 +15,25 @@ namespace Beatemup.Beat
         public WeaponStrategy strategy;
         [SerializeField] private string description;
         public Batch batch;
-        [SerializeField] private int[] pattern;
+        [SerializeField] private List<int> pattern;
 
-        public void SetPattern(int[] arr)
+        public void SetPattern(List<int> arr)
         {
-            int n = arr.Length;
-            pattern = new int [n];
-            for(int i = 0; i < n; ++i)
-            {
-                pattern[i] = arr[i];
-            }
+            pattern = arr;
         }
-        public int[] GetPattern()
+        public List<int> GetPattern()
         {
             return pattern;
+        }
+        public void AddToPattern(int num)
+        {
+            if(!pattern.Any<int>(i => i == num)) {
+                pattern.Add(num);
+            }
+        }
+        public void RemoveFromPattern(int num)
+        {
+            pattern.Remove(num);
         }
         public string GetName()
         {

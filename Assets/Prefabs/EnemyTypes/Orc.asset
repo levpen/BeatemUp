@@ -17,4 +17,4 @@ MonoBehaviour:
   distance: 30
   health: 100
   damage: 40
-  moneyToAdd: 40
+  moneyToAdd: 20

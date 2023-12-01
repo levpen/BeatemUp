@@ -76,6 +76,9 @@ namespace Beatemup.Beat
         {
             Batch num = (Batch)instrument;
             var b = Array.Find(beatBatch, x => x.batch == num);
+            for(int i = 0; i < BEAT_COUNT; ++i) {
+                batchArray[i][(int)num] = 0;
+            }
             foreach(var i in b.GetPattern())
             {
                 batchArray[i][(int)num] = 1;

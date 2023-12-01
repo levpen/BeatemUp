@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70ce66ddc8a41b2ac19a1b12a11afe4, type: 3}
   m_Name: SuperLaserSingleShot
   m_EditorClassIdentifier: 
-  damage: 50
-  projectileSpeed: 100
   projectileLifetime: 4
   projectilePrefab: {fileID: 8921925493328435208, guid: e5028453f6b3c874fac84422cbdaa3ac, type: 3}
+  price: 30
