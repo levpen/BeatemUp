@@ -8,6 +8,7 @@ namespace Beatemup.Enemy
         [SerializeField] private List<EnemyType> enemyTypes;
         [SerializeField] private int maxEnemies = 100;
         [SerializeField] private float spawnInterval = 0.5f;
+        private int maxEnemyType = 1;
         
         public static Collider2D spawnZone;
         
@@ -31,6 +32,12 @@ namespace Beatemup.Enemy
             {
                 SpawnEnemy();
                 spawnTimer = 0f;
+            }
+        }
+        public void AddEnemyType()
+        {
+            if(maxEnemyType < enemyTypes.Count) {
+                ++maxEnemyType;
             }
         }
 

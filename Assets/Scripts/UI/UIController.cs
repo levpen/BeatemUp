@@ -11,7 +11,9 @@ namespace Beatemup.UI
         [SerializeField] private Canvas abilitySelection;
         [SerializeField] private Canvas pauseMenu;
         [SerializeField] private Canvas shopMenu;
+        [SerializeField] private Canvas afterDeadMenu;
         [SerializeField] private TextMeshProUGUI timerText;
+        [SerializeField] private TextMeshProUGUI bestTime;
         [SerializeField] private AbilitySelector abilitySelector;
         bool active;
         private float timer;
@@ -81,6 +83,18 @@ namespace Beatemup.UI
         {
             abilitySelection.gameObject.SetActive(false);
             ResumeTime();
+        }
+        public void UpdateBestTime()
+        {
+            ToggleScreen(afterDeadMenu);
+            if (!PlayerPrefs.HasKey("bestTime"))
+            {
+                PlayerPrefs.SetFloat("bestTime", timer);
+            } else if(PlayerPrefs.GetFloat("bestTime") < timer) {
+                PlayerPrefs.SetFloat("bestTime", timer);
+            }
+            var best = PlayerPrefs.GetFloat("bestTime");
+            bestTime.text = String.Format("{0:00}:{1:00}", (int)best/60, (int)best%60);
         }
     }
 }

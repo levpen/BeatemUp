@@ -40,6 +40,7 @@ namespace Beatemup.Player
         public float dashTime = 0.2f;
         public float dashColldown = 1;
         [SerializeField] private UIController uiController;
+        
 
 
         private void Start()
@@ -212,7 +213,9 @@ namespace Beatemup.Player
             Destroy(this.GameObject());
             //Time.timeScale = 0;
             Cursor.visible = true;
-            SceneManager.LoadScene("MainMenu");
+            hud.gameObject.SetActive(false);
+            uiController.UpdateBestTime();
+            // SceneManager.LoadScene("MainMenu");
         }
     }
 }

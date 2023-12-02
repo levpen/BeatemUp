@@ -94,7 +94,7 @@ AnimationClip:
   - time: 0.5833333
     functionName: Die
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: d39cd196d027400f82cfefdbd6c19bfc, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
