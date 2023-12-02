@@ -19,13 +19,15 @@ namespace Beatemup
         private List<int> maxBeats = new List<int>();
         [SerializeField] HudController hud;
         [SerializeField] BeatController beatController;
+        private AudioSource coinSound = null;
     
         private void Start()
         {
+            coinSound = GetComponent<AudioSource>();
             for(int j = 0; j < abilities.Count; ++j)
             {
                 BeatType b = abilities[j];
-                Debug.Log(j);
+                //Debug.Log(j);
                 var obj = Instantiate(batch);
                 batches.Add(obj);
                 obj.transform.SetParent(this.transform, false);
@@ -81,11 +83,12 @@ namespace Beatemup
         }
         private void BuyBeat(int num, BeatType b)
         {
-            // Debug.Log(num);
-            if(hud.GetMoney() > b.strategy.price) {
+            Debug.Log(num);
+            if(hud.GetMoney() >= b.strategy.price) {
                 hud.ChangeMoney(-b.strategy.price);
                 maxBeats[num]++;
                 UnlockBatch(num);
+                coinSound.Play();
             }
         }
     }

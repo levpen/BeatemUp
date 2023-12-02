@@ -13,6 +13,7 @@ namespace Beatemup.Enemy
         private float health;
         private float damage;
         private int moneyToAdd;
+        private float xpToAdd;
         private Transform playerPosition;
 
         public EnemyBuilder SetBasePrefab(GameObject prefab)
@@ -54,6 +55,11 @@ namespace Beatemup.Enemy
             moneyToAdd=money;
             return this;
         }
+        public EnemyBuilder SetXpToAdd(float xp)
+        {
+            xpToAdd=xp;
+            return this;
+        }
 
         public EnemyBuilder SetPlayerPosition(Transform pos)
         {
@@ -68,8 +74,9 @@ namespace Beatemup.Enemy
             Vector3 curRndPoint;
             do
             {
-                curRndPoint = RandomPointInAnnulus(instance.transform.position, distance, distance + RadiusDelta);
+                curRndPoint = RandomPointInAnnulus(distance, distance + RadiusDelta);
             } while (!EnemySpawner.spawnZone.bounds.Contains(curRndPoint + playerPosition.position));
+            // Debug.Log(instance.transform.position);
 
             instance.transform.position =
                 playerPosition.position +
@@ -80,18 +87,20 @@ namespace Beatemup.Enemy
             controller.health = health;
             controller.damage = damage;
             controller.moneyToAdd = moneyToAdd;
+            controller.xpToAdd = xpToAdd;
 
             return instance;
         }
 
 
-        private Vector2 RandomPointInAnnulus(Vector2 origin, float minRadius, float maxRadius)
+        private Vector2 RandomPointInAnnulus(float minRadius, float maxRadius)
         {
-            var randomDirection = (Random.insideUnitCircle * origin).normalized;
+            var randomDirection = Random.insideUnitCircle.normalized;
             var randomDistance = Random.Range(minRadius, maxRadius);
-            var point = origin + randomDirection * randomDistance;
+            var point = randomDirection * randomDistance;
 
             return point;
         }
+
     }
 }

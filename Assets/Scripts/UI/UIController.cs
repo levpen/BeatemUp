@@ -26,11 +26,11 @@ namespace Beatemup.UI
         {
             if (!abilitySelection.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
             {
-                TogglePause();
+                ToggleScreen(pauseMenu);
             }
             if (!abilitySelection.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.I))
             {
-                ToggleShop();
+                ToggleScreen(shopMenu);
             }
 
             if (!timeStopped)
@@ -46,7 +46,7 @@ namespace Beatemup.UI
             StopCoroutine(BeatController.mainCoroutine);
             Time.timeScale = 0;
             Cursor.visible = true;
-            AudioListener.pause = true;
+            // AudioListener.pause = true;
         }
         
         private void ResumeTime()
@@ -57,29 +57,16 @@ namespace Beatemup.UI
             AudioListener.pause = false;
             beatController.StartBeatLoop();
         }
-        public void TogglePause()
+        public void ToggleScreen(Canvas screen)
         {
-            if (!pauseMenu.gameObject.activeSelf)
+            if (!timeStopped && !screen.gameObject.activeSelf)
             {
-                pauseMenu.gameObject.SetActive(true);
+                screen.gameObject.SetActive(true);
                 StopTime();
             }
-            else
+            else if(timeStopped && screen.gameObject.activeSelf)
             {
-                pauseMenu.gameObject.SetActive(false);
-                ResumeTime();
-            }
-        }
-        public void ToggleShop()
-        {
-            if (!shopMenu.gameObject.activeSelf)
-            {
-                shopMenu.gameObject.SetActive(true);
-                StopTime();
-            }
-            else
-            {
-                shopMenu.gameObject.SetActive(false);
+                screen.gameObject.SetActive(false);
                 ResumeTime();
             }
         }

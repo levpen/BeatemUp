@@ -186,5 +186,6 @@ MonoBehaviour:
   moveSpeed: 1
   health: 0
   damage: 0
+  moneyToAdd: 0
   xpPrefab: {fileID: 3261944051279564664, guid: db44af07ce8992e4999ffb5bd406ceca, type: 3}
   hpPrefab: {fileID: 3261944051279564664, guid: 44ea64e5ce7e8824081be89ee9c8177d, type: 3}

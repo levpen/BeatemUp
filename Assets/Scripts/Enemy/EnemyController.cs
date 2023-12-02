@@ -1,6 +1,7 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
 using Beatemup.UI;
+using Beatemup.Consumables;
 
 namespace Beatemup.Enemy
 {
@@ -12,12 +13,14 @@ namespace Beatemup.Enemy
         public float health;
         public float damage;
         public int moneyToAdd;
+        public float xpToAdd;
         
         public GameObject xpPrefab;
         public GameObject hpPrefab;
         private Animator animator;
         private SpriteRenderer spriteRenderer;
         private bool dead;
+        private bool rotated = false;
         
 
         private void Awake()
@@ -37,14 +40,16 @@ namespace Beatemup.Enemy
             if (player != null && !dead)
             {
                 var curDir = (transform.position - player.position).x;
-                if (curDir > 0)
+                if (!rotated && curDir > 0)
                 {
-                    spriteRenderer.flipX = true;
-                } else if (curDir < 0)
+                    transform.Rotate(0,180,0);
+                    rotated = true;
+                } else if (rotated && curDir < 0)
                 { 
-                    spriteRenderer.flipX = false;
+                    transform.Rotate(0,-180,0);
+                    rotated = false;
                 }
-                transform.position = Vector2.MoveTowards(transform.position, player.position, Time.deltaTime * moveSpeed);                
+                transform.position = Vector2.MoveTowards(transform.position, player.position, Time.deltaTime * moveSpeed);
             }
         }
 
@@ -70,15 +75,22 @@ namespace Beatemup.Enemy
         void Defeated()
         {
             dead = true;
-            Destroy(GetComponent<Collider2D>());
             animator.SetTrigger("Defeated");
+            Destroy(GetComponent<Collider2D>());
         }
         private void Die()
         {
             var rnd = Random.Range(0f, 1f);
             var transform1 = transform;
             hudController.ChangeMoney(moneyToAdd);
-            Instantiate(rnd < 0.1f ? hpPrefab : xpPrefab, transform1.position, transform1.rotation);
+            var xp = Instantiate(rnd < 0.1f ? hpPrefab : xpPrefab, transform1.position, transform1.rotation);
+            if(xp.GetComponent<Experience>()) {
+                xp.GetComponent<Experience>().xpPoints = xpToAdd;
+                if(xpToAdd >= 50)
+                    xp.GetComponent<SpriteRenderer>().color = Color.green;
+                if(xpToAdd >= 80)
+                    xp.GetComponent<SpriteRenderer>().color = Color.magenta;
+            }
             Destroy(this.GameObject());
         }
     }
