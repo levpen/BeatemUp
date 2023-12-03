@@ -65,11 +65,14 @@ namespace Beatemup.Beat
             AddInstrument(1);
         }
 
+        public float GetBpm() {
+            return bpm;
+        }
+
         public void UpdateBpm(float newBpm)
         {
             bpm = newBpm;
             UpdateBpmInSeconds();
-            
         }
 
         public void AddInstrument(int instrument)

@@ -1,5 +1,6 @@
 ﻿using System;
 using Beatemup.Beat;
+using Beatemup.Enemy;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Beatemup.UI
     public class UIController : MonoBehaviour
     {
         [SerializeField] private BeatController beatController;
+        [SerializeField] private EnemySpawner enemySpawner;
         [SerializeField] private Canvas abilitySelection;
         [SerializeField] private Canvas pauseMenu;
         [SerializeField] private Canvas shopMenu;
@@ -45,7 +47,8 @@ namespace Beatemup.UI
         private void StopTime()
         {
             timeStopped = true;
-            StopCoroutine(BeatController.mainCoroutine);
+            beatController.StopAllCoroutines();
+            enemySpawner.StopAllCoroutines();
             Time.timeScale = 0;
             Cursor.visible = true;
             // AudioListener.pause = true;
@@ -58,6 +61,7 @@ namespace Beatemup.UI
             Cursor.visible = false;
             AudioListener.pause = false;
             beatController.StartBeatLoop();
+            enemySpawner.StartEnemyCoroutines();
         }
         public void ToggleScreen(Canvas screen)
         {

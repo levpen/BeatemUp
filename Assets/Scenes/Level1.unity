@@ -499,8 +499,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 334e77b7e8bb0d6498bd8e3e97b46dbd, type: 2}
   - {fileID: 11400000, guid: 62a236170f0ca4a499b6ed91c2854f3d, type: 2}
   - {fileID: 11400000, guid: 0923d8bd63a1963498a8e66900dadcba, type: 2}
-  maxEnemies: 100
-  spawnInterval: 1
+  maxEnemies: 10000
+  spawnInterval: 2
+  spawnTimeUpdate: 1
+  additionalHpDelta: 1
 --- !u!4 &337860469
 Transform:
   m_ObjectHideFlags: 0
@@ -76906,8 +76908,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 21300000, guid: d68960292acc29946938ce4434896073, type: 3}
-  m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+  m_Sprite: {fileID: 21300000, guid: bfbf5ef172ed6f44d9762302c36abf0b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -77287,6 +77289,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1696644857}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1811420903
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1965018915804254638, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.514086
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965018915804254638, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4816137
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965018915804254638, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965018915804254638, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965018915804254638, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965018915804254638, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965018915804254638, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965018915804254638, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965018915804254638, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965018915804254638, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261944051279564664, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
+      propertyPath: m_Name
+      value: SpeedBooster
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bbcf3010fbafa34499eb8e557a79e65a, type: 3}
 --- !u!1 &1827574269
 GameObject:
   m_ObjectHideFlags: 0
@@ -78242,3 +78301,4 @@ SceneRoots:
   - {fileID: 1381357415}
   - {fileID: 1029229615}
   - {fileID: 691443332}
+  - {fileID: 1811420903}

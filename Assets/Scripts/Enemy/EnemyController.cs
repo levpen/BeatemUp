@@ -14,9 +14,12 @@ namespace Beatemup.Enemy
         public float damage;
         public int moneyToAdd;
         public float xpToAdd;
+        // [SerializeField] private float hpUpdateInterval = 1f;
+        // private float timer = 0;
         
         public GameObject xpPrefab;
         public GameObject hpPrefab;
+        public GameObject speedBoosterPrefab;
         private Animator animator;
         private SpriteRenderer spriteRenderer;
         private bool dead;
@@ -37,6 +40,7 @@ namespace Beatemup.Enemy
 
         private void Update()
         {
+            // timer += Time.deltaTime;
             if (player != null && !dead)
             {
                 var curDir = (transform.position - player.position).x;
@@ -51,6 +55,10 @@ namespace Beatemup.Enemy
                 }
                 transform.position = Vector2.MoveTowards(transform.position, player.position, Time.deltaTime * moveSpeed);
             }
+            // if(timer >= hpUpdateInterval) {
+            //     timer = 0;
+            //     health += 1/health;
+            // }
         }
 
 
@@ -83,7 +91,13 @@ namespace Beatemup.Enemy
             var rnd = Random.Range(0f, 1f);
             var transform1 = transform;
             hudController.ChangeMoney(moneyToAdd);
-            var xp = Instantiate(rnd < 0.1f ? hpPrefab : xpPrefab, transform1.position, transform1.rotation);
+            var curPrefab = xpPrefab;
+            if(rnd < 0.01f) {
+                curPrefab = speedBoosterPrefab;
+            } else if(rnd < 0.1f) {
+                curPrefab = hpPrefab;
+            }
+            var xp = Instantiate(curPrefab, transform1.position, transform1.rotation);
             if(xp.GetComponent<Experience>()) {
                 xp.GetComponent<Experience>().xpPoints = xpToAdd;
                 if(xpToAdd >= 50)
