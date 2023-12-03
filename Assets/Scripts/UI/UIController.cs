@@ -16,6 +16,7 @@ namespace Beatemup.UI
         [SerializeField] private Canvas afterDeadMenu;
         [SerializeField] private TextMeshProUGUI timerText;
         [SerializeField] private TextMeshProUGUI bestTime;
+        [SerializeField] private TextMeshProUGUI currentRunTime;
         [SerializeField] private AbilitySelector abilitySelector;
         bool active;
         private float timer;
@@ -99,6 +100,7 @@ namespace Beatemup.UI
             }
             var best = PlayerPrefs.GetFloat("bestTime");
             bestTime.text = String.Format("{0:00}:{1:00}", (int)best/60, (int)best%60);
+            currentRunTime.text = String.Format("{0:00}:{1:00}", (int)timer/60, (int)timer%60);
         }
     }
 }

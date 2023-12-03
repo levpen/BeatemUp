@@ -86,6 +86,7 @@ namespace Beatemup
             Debug.Log(num);
             if(hud.GetMoney() >= b.strategy.price) {
                 hud.ChangeMoney(-b.strategy.price);
+                // b.strategy.price *= 2;
                 maxBeats[num]++;
                 UnlockBatch(num);
                 coinSound.Play();
