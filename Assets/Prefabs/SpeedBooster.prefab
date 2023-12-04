@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magnetizing: 0
-  multiplier: 1.2
+  multiplier: 2
   boosterTime: 15
   sprite: {fileID: 3286365871105977114}

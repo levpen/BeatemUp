@@ -28,12 +28,18 @@ namespace Beatemup.Beat
         public void AddToPattern(int num)
         {
             if(!pattern.Any<int>(i => i == num)) {
+                var proj = strategy.projectilePrefab.GetComponent<Projectile>();
+                proj.SetDamage(proj.GetDamage() * Mathf.Max(1, pattern.Count)/(pattern.Count+1));
                 pattern.Add(num);
             }
         }
         public void RemoveFromPattern(int num)
         {
+            var proj = strategy.projectilePrefab.GetComponent<Projectile>();
+            proj.SetDamage(proj.GetDamage() * pattern.Count/Mathf.Max(1, pattern.Count-1));
+            Debug.Log(pattern.Count);
             pattern.Remove(num);
+            Debug.Log(pattern.Count);
         }
         public string GetName()
         {

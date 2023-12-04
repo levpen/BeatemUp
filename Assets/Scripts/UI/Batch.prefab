@@ -226,7 +226,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Add
+  m_text: Buy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0023ff5ad49dd0242a7867a80ce905a7, type: 2}
   m_sharedMaterial: {fileID: 674379490549252387, guid: 0023ff5ad49dd0242a7867a80ce905a7, type: 2}
@@ -476,7 +476,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_SizeDelta: {x: 0, y: 61.8712}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1584043220729324665
 CanvasRenderer:
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hat 0/8
+  m_text: Hat 0/8 Price:30 Damage:10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0023ff5ad49dd0242a7867a80ce905a7, type: 2}
   m_sharedMaterial: {fileID: 674379490549252387, guid: 0023ff5ad49dd0242a7867a80ce905a7, type: 2}

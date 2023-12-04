@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   damage: 80
+  initialDamage: 80
   shootPrefab: {fileID: 0}
   hitPrefab: {fileID: 0}
   circle: {fileID: 7822908834744755568}

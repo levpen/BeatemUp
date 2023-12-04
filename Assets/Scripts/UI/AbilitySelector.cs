@@ -11,19 +11,12 @@ namespace Beatemup.UI
     public class AbilitySelector : MonoBehaviour
     {
         private const int btnsNum = 3;
-        [SerializeField] private List<BeatType> abilities;
+        public List<BeatType> abilities;
         [SerializeField] private BeatController beatController;
         [SerializeField] private Button[] btns = new Button[btnsNum];
         private int[] btnsIndxes = new int[btnsNum];
         [SerializeField] private UIController uiController;
 
-        // private void Start()
-        // {
-        //     foreach (var btn in btns)
-        //     {
-        //         btn.gameObject.SetActive(false);
-        //     }
-        // }
 
         void ActivateButton(int btnIndex, int abilityIndex)
         {

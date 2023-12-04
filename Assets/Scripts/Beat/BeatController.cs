@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,6 +25,7 @@ namespace Beatemup.Beat
         public static Coroutine mainCoroutine;
 
         private int instrumentsNumber;
+        [SerializeField] private TextMeshProUGUI textBpm;
 
         // private bool initialInstrument = true;
 
@@ -41,6 +43,7 @@ namespace Beatemup.Beat
         void Awake()
         {
             UpdateBpmInSeconds();
+            textBpm.text = "BPM: "+bpm;
             foreach (var beatType in beatBatch)
             {
                 var comp = this.AddComponent<AudioSource>();
@@ -72,6 +75,7 @@ namespace Beatemup.Beat
         public void UpdateBpm(float newBpm)
         {
             bpm = newBpm;
+            textBpm.text = "BPM: "+bpm;
             UpdateBpmInSeconds();
         }
 

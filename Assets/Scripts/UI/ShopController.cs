@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Beatemup.Beat;
 using Beatemup.UI;
+using Beatemup.Weapon;
 using TMPro;
 using Unity.Collections;
 using Unity.VisualScripting;
@@ -20,6 +21,7 @@ namespace Beatemup
         [SerializeField] HudController hud;
         [SerializeField] BeatController beatController;
         private AudioSource coinSound = null;
+        [SerializeField] private AbilitySelector abilitySelector;
     
         private void Start()
         {
@@ -31,10 +33,10 @@ namespace Beatemup
                 var obj = Instantiate(batch);
                 batches.Add(obj);
                 obj.transform.SetParent(this.transform, false);
-                var text = obj.transform.GetChild(0).gameObject;
+                var text = obj.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
                 var pattern = b.GetPattern();
                 maxBeats.Add(pattern.Count);
-                text.GetComponent<TextMeshProUGUI>().text = b.GetName()+" "+pattern.Count+"/8 Price:"+b.strategy.price;
+                UpdateBatchText(text, b);
                 foreach(int i in pattern) {
                     var toggle = obj.transform.GetChild(1).GetChild(i).gameObject.GetComponent<Toggle>();
                     toggle.isOn = true;
@@ -45,7 +47,7 @@ namespace Beatemup
                     int tmpi = i;
                     toggle.onValueChanged.AddListener((x) => ChangePatern(tmp, tmpi, b));
                 }
-                obj.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => BuyBeat(tmp, b));
+                obj.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => BuyBeat(tmp, b, text));
                 LockBatch(j);
             }
         }
@@ -67,26 +69,32 @@ namespace Beatemup
             var cur = batches[num];
             var text = cur.transform.GetChild(0).gameObject;
             if(cur.transform.GetChild(1).GetChild(numi).gameObject.GetComponent<Toggle>().isOn) {
-                var pattern = b.GetPattern();
                 b.AddToPattern(numi);
-                var curCount = b.GetPattern().Count;
-                text.GetComponent<TextMeshProUGUI>().text = b.GetName()+" "+curCount+"/8 Price:"+b.strategy.price;
-                if(curCount == maxBeats[num]) {
+                UpdateBatchText(text.GetComponent<TextMeshProUGUI>(), b);
+                if(b.GetPattern().Count == maxBeats[num]) {
                     LockBatch(num);
                 }
-                beatController.AddInstrument((int)b.batch);
+                if(!abilitySelector.abilities.Contains(b))
+                    beatController.AddInstrument((int)b.batch);
             } else {
                 b.RemoveFromPattern(numi);
-                text.GetComponent<TextMeshProUGUI>().text = b.GetName()+" "+b.GetPattern().Count+"/8 Price:"+b.strategy.price;
+                UpdateBatchText(text.GetComponent<TextMeshProUGUI>(), b);
                 UnlockBatch(num);
+                if(!abilitySelector.abilities.Contains(b))
+                    beatController.AddInstrument((int)b.batch);
             }
         }
-        private void BuyBeat(int num, BeatType b)
+
+        void UpdateBatchText(TextMeshProUGUI text, BeatType b) {
+            text.text = b.GetName()+" "+b.GetPattern().Count+"/8 Price:"+b.strategy.price+" Damage:"+b.strategy.projectilePrefab.GetComponent<Projectile>().GetDamage();
+        }
+        private void BuyBeat(int num, BeatType b, TextMeshProUGUI text)
         {
             Debug.Log(num);
-            if(hud.GetMoney() >= b.strategy.price) {
+            if(!abilitySelector.abilities.Contains(b) && hud.GetMoney() >= b.strategy.price) {
                 hud.ChangeMoney(-b.strategy.price);
-                // b.strategy.price *= 2;
+                b.strategy.price *= 2;
+                UpdateBatchText(text, b);
                 maxBeats[num]++;
                 UnlockBatch(num);
                 coinSound.Play();
