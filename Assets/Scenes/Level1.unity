@@ -695,6 +695,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bb4e08dfd05be6e42ae5e4d14fe97a87, type: 2}
   - {fileID: 11400000, guid: 93c31b6ea93278d49a78096850152a39, type: 2}
   - {fileID: 11400000, guid: c9e7a5f9ead1d364b8e84815dd833780, type: 2}
+  upgrades:
+  - {fileID: 11400000, guid: 750b42ccf0d58524e8a41e12700b63e9, type: 2}
+  - {fileID: 11400000, guid: 3e69e10de9f11244ca2a875f34211ae1, type: 2}
+  - {fileID: 11400000, guid: e2eb62ef0b6e17e4fb6c9210108ba791, type: 2}
+  - {fileID: 11400000, guid: 13c007df36a48c74f8990831bd3aed00, type: 2}
+  - {fileID: 11400000, guid: ab206158d2335b24f94450c83677f8b1, type: 2}
   beatController: {fileID: 1756372492}
   btns:
   - {fileID: 582122462}
@@ -932,7 +938,7 @@ GameObject:
   - component: {fileID: 421964854}
   - component: {fileID: 421964853}
   m_Layer: 5
-  m_Name: Level (1)
+  m_Name: Bpm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77548,7 +77554,7 @@ MonoBehaviour:
   firePoint: {fileID: 550760895}
   crossHair: {fileID: 1667724398}
   playerAnimator: {fileID: 1696644861}
-  textBpm: {fileID: 0}
+  textBpm: {fileID: 421964853}
 --- !u!4 &1756372493
 Transform:
   m_ObjectHideFlags: 0
@@ -77773,7 +77779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1831389587
 MonoBehaviour:
   m_ObjectHideFlags: 0

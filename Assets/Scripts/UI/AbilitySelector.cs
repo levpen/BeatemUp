@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Beatemup.Beat;
+using Beatemup.Weapon;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ namespace Beatemup.UI
     {
         private const int btnsNum = 3;
         public List<BeatType> abilities;
+        [SerializeField] private List<Upgrade> upgrades;
         [SerializeField] private BeatController beatController;
         [SerializeField] private Button[] btns = new Button[btnsNum];
         private int[] btnsIndxes = new int[btnsNum];
@@ -39,16 +41,34 @@ namespace Beatemup.UI
 
                 indices.Add(abilInd);
                 ActivateButton(i, abilInd);
+                btns[i].onClick.RemoveAllListeners();
+                var tmpI = i;
+                btns[i].onClick.AddListener(() => AddAbility(tmpI));
             }
             for (int i = n; i < btnsNum; i++)
             {
-                btns[i].GetComponentInChildren<TextMeshProUGUI>().text = "NONE";
+                indices = new HashSet<int>();
+                int upgradeInd;
+                do
+                {
+                    upgradeInd = Random.Range(0, upgrades.Count);
+                } while (indices.Contains(upgradeInd));
+                indices.Add(upgradeInd);
+                btnsIndxes[i] = upgradeInd;
+                btns[i].onClick.RemoveAllListeners();
+                var tmpI = i;
+                btns[i].onClick.AddListener(() => AddUpgrade(tmpI));
+                btns[i].GetComponentInChildren<TextMeshProUGUI>().text = upgrades[upgradeInd].GetName();
             }
         }
 
         void RemoveAbilityFromList(int index)
         {
             abilities.RemoveAt(index);
+        }
+        public void AddUpgrade(int btnIndex) {
+            upgrades[btnsIndxes[btnIndex]].UpgradeWeapon();
+            uiController.DeactivateSelection();
         }
 
         public void AddAbility(int btnIndex)

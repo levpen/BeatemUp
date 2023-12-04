@@ -88,6 +88,12 @@ namespace Beatemup
         void UpdateBatchText(TextMeshProUGUI text, BeatType b) {
             text.text = b.GetName()+" "+b.GetPattern().Count+"/8 Price:"+b.strategy.price+" Damage:"+b.strategy.projectilePrefab.GetComponent<Projectile>().GetDamage();
         }
+        public void UpdateAllText() {
+            for(int j = 0; j < batches.Count; ++j) {
+                var text = batches[j].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+                UpdateBatchText(text, abilities[j]);
+            }
+        }
         private void BuyBeat(int num, BeatType b, TextMeshProUGUI text)
         {
             Debug.Log(num);

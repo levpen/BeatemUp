@@ -18,6 +18,7 @@ namespace Beatemup.UI
         [SerializeField] private TextMeshProUGUI bestTime;
         [SerializeField] private TextMeshProUGUI currentRunTime;
         [SerializeField] private AbilitySelector abilitySelector;
+        [SerializeField] private ShopController shopController;
         bool active;
         private float timer;
         public bool timeStopped;
@@ -36,6 +37,7 @@ namespace Beatemup.UI
             if (!abilitySelection.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.I))
             {
                 ToggleScreen(shopMenu);
+                shopController.UpdateAllText();
             }
 
             if (!timeStopped)
