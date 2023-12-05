@@ -10,7 +10,9 @@ namespace Beatemup.Weapon
         new void Start()
         {
             base.Start();
-            transform.Translate(GetComponent<SpriteRenderer>().bounds.size.x/2, 0, 0);
+            // transform.Translate(GetComponent<SpriteRenderer>().bounds.size.x/2, 0, 0);
+            // transform.TransformVector(0, GetComponent<SpriteRenderer>().bounds.size.y/2, 0);
+            // Debug.Log(GetComponent<SpriteRenderer>().bounds.size.y/2);
         }
         private void OnTriggerEnter2D(Collider2D other)
         {

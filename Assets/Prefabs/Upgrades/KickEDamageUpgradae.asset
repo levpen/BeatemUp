@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a493d00ee1201e4595380808947eaa1, type: 3}
   m_Name: KickEDamageUpgradae
   m_EditorClassIdentifier: 
-  upgradeName: KickEDamageUpgrade
+  upgradeName: KickE Damage Upgrade
   beatType: {fileID: 11400000, guid: 93c31b6ea93278d49a78096850152a39, type: 2}
   damageMultiplier: 1.2

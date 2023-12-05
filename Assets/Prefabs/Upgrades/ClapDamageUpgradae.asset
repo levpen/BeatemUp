@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a493d00ee1201e4595380808947eaa1, type: 3}
   m_Name: ClapDamageUpgradae
   m_EditorClassIdentifier: 
-  upgradeName: ClapDamageUpgrade
+  upgradeName: Clap Damage Upgrade
   beatType: {fileID: 11400000, guid: 320fa7f9740c03045beba16796b2a4b3, type: 2}
   damageMultiplier: 1.2

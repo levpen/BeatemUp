@@ -414,19 +414,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 173117464}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 342212056}
-        m_TargetAssemblyTypeName: Beatemup.UI.AbilitySelector, Assembly-CSharp
-        m_MethodName: AddAbility
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &173117464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,7 +488,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 62a236170f0ca4a499b6ed91c2854f3d, type: 2}
   - {fileID: 11400000, guid: 0923d8bd63a1963498a8e66900dadcba, type: 2}
   maxEnemies: 10000
-  spawnInterval: 5
+  spawnInterval: 2
   statsUpdateInterval: 1
   additionalHpDelta: 1
 --- !u!4 &337860469
@@ -1435,6 +1423,7 @@ MonoBehaviour:
   bestTime: {fileID: 928931836}
   currentRunTime: {fileID: 1416178951}
   abilitySelector: {fileID: 342212056}
+  shopController: {fileID: 1500458179}
   timeStopped: 0
 --- !u!4 &489539440
 Transform:
@@ -1825,19 +1814,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 582122463}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 342212056}
-        m_TargetAssemblyTypeName: Beatemup.UI.AbilitySelector, Assembly-CSharp
-        m_MethodName: AddAbility
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &582122463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71801,19 +71778,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1038645600}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 342212056}
-        m_TargetAssemblyTypeName: Beatemup.UI.AbilitySelector, Assembly-CSharp
-        m_MethodName: AddAbility
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1038645600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77779,7 +77744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1831389587
 MonoBehaviour:
   m_ObjectHideFlags: 0

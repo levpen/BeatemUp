@@ -45,9 +45,9 @@ namespace Beatemup.UI
                 var tmpI = i;
                 btns[i].onClick.AddListener(() => AddAbility(tmpI));
             }
+            indices = new HashSet<int>();
             for (int i = n; i < btnsNum; i++)
             {
-                indices = new HashSet<int>();
                 int upgradeInd;
                 do
                 {

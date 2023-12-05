@@ -66,6 +66,7 @@ namespace Beatemup.Beat
 
             sources = GetComponents<AudioSource>();
             AddInstrument(1);
+            // AddInstrument(3);
         }
 
         public float GetBpm() {
