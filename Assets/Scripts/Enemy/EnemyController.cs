@@ -94,7 +94,7 @@ namespace Beatemup.Enemy
             var curPrefab = xpPrefab;
             if(rnd < 0.01f) {
                 curPrefab = speedBoosterPrefab;
-            } else if(rnd < 0.1f) {
+            } else if(rnd < 0.2f) {
                 curPrefab = hpPrefab;
             }
             var xp = Instantiate(curPrefab, transform1.position, transform1.rotation);

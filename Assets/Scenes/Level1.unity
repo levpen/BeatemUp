@@ -71535,7 +71535,7 @@ MonoBehaviour:
   currentMoney: 0
   currentXp: 0
   maximumXp: 100
-  levelMultiplier: 1.2
+  levelMultiplier: 1.5
   uiConroller: {fileID: 489539439}
 --- !u!1 &1028309586
 GameObject:
