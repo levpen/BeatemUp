@@ -15,11 +15,14 @@ namespace Beatemup.Beat
         public WeaponStrategy strategy;
         [SerializeField] private string description;
         public Batch batch;
+        public List<int> initialPattern;
         [SerializeField] private List<int> pattern;
 
         public void SetPattern(List<int> arr)
         {
-            pattern = arr;
+            pattern = new List<int>();
+            for(int i = 0; i < arr.Count; ++i)
+                pattern.Add(arr[i]);
         }
         public List<int> GetPattern()
         {

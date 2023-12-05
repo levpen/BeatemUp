@@ -7,6 +7,7 @@ namespace Beatemup.Weapon
     public class Projectile : MonoBehaviour
     {
         [SerializeField] private float speed;
+        [SerializeField] protected float initialDamage;
         [SerializeField] protected float damage;
         // [SerializeField] protected float initialDamage;
         [SerializeField] private GameObject shootPrefab;
@@ -16,7 +17,7 @@ namespace Beatemup.Weapon
 
         public void SetSpeed(float speed) => this.speed = speed;
         public void SetDamage(float damage) => this.damage = damage;
-        // public float GetInitialDamage() => initialDamage;
+        public float GetInitialDamage() => initialDamage;
         public float GetDamage() => damage;
         public void SetParent(Transform parent) => this.parent = parent;
         

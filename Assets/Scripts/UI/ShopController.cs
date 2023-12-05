@@ -7,6 +7,7 @@ using Beatemup.Weapon;
 using TMPro;
 using Unity.Collections;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +30,7 @@ namespace Beatemup
             for(int j = 0; j < abilities.Count; ++j)
             {
                 BeatType b = abilities[j];
+                b.strategy.SetInitialPrice();
                 //Debug.Log(j);
                 var obj = Instantiate(batch);
                 batches.Add(obj);
@@ -86,7 +88,7 @@ namespace Beatemup
         }
 
         void UpdateBatchText(TextMeshProUGUI text, BeatType b) {
-            text.text = b.GetName()+" "+b.GetPattern().Count+"/8 Price:"+b.strategy.price+" Damage:"+b.strategy.projectilePrefab.GetComponent<Projectile>().GetDamage();
+            text.text = b.GetName()+" "+b.GetPattern().Count+"/8 Price:"+b.strategy.currentPrice+" Damage:"+b.strategy.projectilePrefab.GetComponent<Projectile>().GetDamage();
         }
         public void UpdateAllText() {
             for(int j = 0; j < batches.Count; ++j) {
@@ -97,9 +99,9 @@ namespace Beatemup
         private void BuyBeat(int num, BeatType b, TextMeshProUGUI text)
         {
             Debug.Log(num);
-            if(!abilitySelector.abilities.Contains(b) && hud.GetMoney() >= b.strategy.price) {
-                hud.ChangeMoney(-b.strategy.price);
-                b.strategy.price *= 2;
+            if(!abilitySelector.abilities.Contains(b) && hud.GetMoney() >= b.strategy.currentPrice) {
+                hud.ChangeMoney(-b.strategy.currentPrice);
+                b.strategy.currentPrice *= 2;
                 UpdateBatchText(text, b);
                 maxBeats[num]++;
                 UnlockBatch(num);
