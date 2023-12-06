@@ -40,6 +40,7 @@ namespace Beatemup.Player
         public float dashTime = 0.2f;
         public float dashColldown = 1;
         [SerializeField] private UIController uiController;
+        private AudioSource hitSound;
         
 
 
@@ -48,6 +49,7 @@ namespace Beatemup.Player
             spriteRenderer = GetComponent<SpriteRenderer>();
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            hitSound = GetComponent<AudioSource>();
             Cursor.visible = false;
         }
 
@@ -140,6 +142,7 @@ namespace Beatemup.Player
             // Debug.Log("Player damaged");
             if (!dead)
             {
+                hitSound.Play();
                 health -= damage;
                 spriteRenderer.color = Color.red;
                 hud.ChangeHp(health);

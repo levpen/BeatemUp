@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SnareType
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 1d7b573060f1fc64eb61a15750f2f85d, type: 3}
-  strategy: {fileID: 11400000, guid: ad0652d75d8af8845a20c6f5c96c5a49, type: 2}
+  strategy: {fileID: 11400000, guid: 6fac301c733364e4894c38bc5cc9507d, type: 2}
   description: 
   batch: 2
-  initialPattern: 020000000600000004000000
-  pattern: 0200000006000000040000000000000003000000
+  initialPattern: 000000000200000006000000
+  pattern: 00000000020000000600000004000000

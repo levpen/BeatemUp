@@ -6,7 +6,7 @@ namespace Beatemup.Weapon
 {
     public class Projectile : MonoBehaviour
     {
-        [SerializeField] private float speed;
+        [SerializeField] protected float speed;
         [SerializeField] protected float initialDamage;
         [SerializeField] protected float damage;
         // [SerializeField] protected float initialDamage;

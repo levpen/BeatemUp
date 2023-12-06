@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HiHatType
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 57aa7440aa37e4044a849071400ce27d, type: 3}
-  strategy: {fileID: 11400000, guid: 248e84240ccfd764caa858d52b116afb, type: 2}
+  strategy: {fileID: 11400000, guid: a143d33ec6d385a4990aa0a687fee775, type: 2}
   description: 
   batch: 0
   initialPattern: 00000000020000000400000006000000
-  pattern: 000000000200000004000000060000000500000001000000
+  pattern: 00000000020000000400000006000000

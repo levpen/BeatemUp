@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e70ce66ddc8a41b2ac19a1b12a11afe4, type: 3}
-  m_Name: SuperLaserSingleShot
+  m_Script: {fileID: 11500000, guid: 5c957fbf54f72b740b60820505a54d36, type: 3}
+  m_Name: AxeRandomAngleShot
   m_EditorClassIdentifier: 
   projectileLifetime: 4
-  projectilePrefab: {fileID: 8921925493328435208, guid: e5028453f6b3c874fac84422cbdaa3ac, type: 3}
-  price: 30
+  projectilePrefab: {fileID: 8921925493328435208, guid: e1b696d9c006a744eb70f8ebdcb4df57, type: 3}
+  price: 100
+  currentPrice: 100

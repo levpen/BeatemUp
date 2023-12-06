@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  initialDamage: 100
+  initialDamage: 150
   damage: 45
   shootPrefab: {fileID: 0}
   hitPrefab: {fileID: 0}

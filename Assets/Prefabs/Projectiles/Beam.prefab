@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  initialDamage: 50
-  damage: 50
+  initialDamage: 100
+  damage: 25
   shootPrefab: {fileID: 0}
   hitPrefab: {fileID: 0}
 --- !u!212 &7231421616502807029
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 2
   m_Size: {x: 10, y: 1.4285715}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -135,16 +135,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.078394234}
+  m_Offset: {x: 4.6508994, y: -0.078394234}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.024022005, y: 0.45835194}
     oldSize: {x: 10, y: 1.4285715}
     newSize: {x: 10, y: 1.4285715}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 0.48784077}
+  m_Size: {x: 9.489535, y: 0.48784077}
   m_EdgeRadius: 0

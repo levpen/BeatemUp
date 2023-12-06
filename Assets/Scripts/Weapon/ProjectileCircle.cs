@@ -6,8 +6,6 @@ namespace Beatemup
 {
     public class ProjectileCircle : Projectile
     {
-        [SerializeField] private SpriteRenderer circle;
-
         private void FixedUpdate()
         {
             var curScale = transform.localScale;

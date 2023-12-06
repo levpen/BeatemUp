@@ -8,7 +8,7 @@ namespace Beatemup.Enemy
     {
         [SerializeField] private List<EnemyType> enemyTypes;
         [SerializeField] private int maxEnemies = 100000;
-        [SerializeField] private float spawnInterval = 0.5f;
+        public float spawnInterval = 0.5f;
         [SerializeField] private float statsUpdateInterval = 1f;
         // private float spawnUpdateTimer = 0f;
         private int maxEnemyType = 1;

@@ -24,12 +24,14 @@ namespace Beatemup.Enemy
         private SpriteRenderer spriteRenderer;
         private bool dead;
         private bool rotated = false;
+        private EnemySpawner enemySpawner;
         
 
         private void Awake()
         {
             player = GameObject.FindWithTag("Player").transform;
             hudController = GameObject.FindWithTag("HUD").GetComponent<HudController>();
+            enemySpawner = GameObject.FindWithTag("Spawner").GetComponent<EnemySpawner>();
         }
 
         private void Start()
@@ -92,9 +94,9 @@ namespace Beatemup.Enemy
             var transform1 = transform;
             hudController.ChangeMoney(moneyToAdd);
             var curPrefab = xpPrefab;
-            if(rnd < 0.01f) {
+            if(rnd < 0.1f*enemySpawner.spawnInterval) {
                 curPrefab = speedBoosterPrefab;
-            } else if(rnd < 0.2f) {
+            } else if(rnd < 0.2f*enemySpawner.spawnInterval) {
                 curPrefab = hpPrefab;
             }
             var xp = Instantiate(curPrefab, transform1.position, transform1.rotation);

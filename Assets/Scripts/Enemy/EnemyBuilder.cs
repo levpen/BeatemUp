@@ -4,7 +4,7 @@ namespace Beatemup.Enemy
 {
     public class EnemyBuilder
     {
-        private const float RadiusDelta = 10f;
+        [SerializeField] private const float RadiusDelta = 20f;
 
         private GameObject enemyPrefab;
         //private GameObject weaponPrefab;
