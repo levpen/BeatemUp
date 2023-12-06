@@ -17,4 +17,4 @@ MonoBehaviour:
   description: 
   batch: 4
   initialPattern: 02000000
-  pattern: 00000000020000000400000006000000
+  pattern: 02000000

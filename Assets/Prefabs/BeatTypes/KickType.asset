@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KickType
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: ea22567c3914eeb42b2b1bd0ebc5ab5b, type: 3}
-  strategy: {fileID: 11400000, guid: 9609655609a442b4f8162e5f9f54e878, type: 2}
+  strategy: {fileID: 11400000, guid: c0ee1399298eb4d438d09f1a4b280801, type: 2}
   description: 
   batch: 1
   initialPattern: 0100000005000000
