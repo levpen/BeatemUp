@@ -30,6 +30,8 @@ ESC - pause menu
 Shift - dash
 
 **Stats**
+
+
 Health, coins, experience points
 
 ### Shop
