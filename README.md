@@ -16,14 +16,19 @@ The player must defend themselves against enemies, staying alive for as long as 
 
 **Controls**
 WASD -  moving 
+
 Mouse - change position of the crosshair
+
 “I” button - shop menu
+
 ESC - pause menu
+
 Shift - dash
 
 **Stats**
 Health, coins, experience points
-Shop
+
+### Shop
 The player can access the store menu by pressing the 'I' button. In this menu, the player can purchase beat slots for any weapon from the arsenal using coins. After purchasing some weapon beat slot, the cost of the beat slot for this kind of weapon increases. When you buy beatslot, your weapon creates one more unit per music tac, but overall damage from this weapon remains the same. It just split into equal parts.
 
 ### Level
