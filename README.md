@@ -12,9 +12,11 @@ In addition, player get coins for enemy murder.
 
 ### Player
 **Goal**
+
 The player must defend themselves against enemies, staying alive for as long as possible. To do this, they can aim at enemies with a weapon using the mouse, perform a dash using the shift key, and earn experience for weapon upgrades or for adding a new type of weapon to the arsenal. Additionally, the player can buy beat slots for coins.
 
 **Controls**
+
 WASD -  moving 
 
 Mouse - change position of the crosshair
