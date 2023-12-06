@@ -9,6 +9,7 @@ namespace Beatemup.Beat
         kick,
         snare,
         clap,
-        kickE
+        kickE,
+        axe
     }
 }
