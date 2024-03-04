@@ -1,4 +1,6 @@
 # BeatemUp
+![demo](https://github.com/levpen/BeatemUp/assets/68129190/b7f190f6-469b-41dc-ad1f-827f3a8a55c5)
+
 ## Game description
 ### Abstract
 We make our game in the shoot ’em up and rogue-like genre similar to Vampire Survivors but with the rhythm-game elements.
